@@ -4,19 +4,21 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
+* Api::PostsController (feed)
 
 ### Views
+* posts/feed.json.jbuilder
 
 ## Backbone
 ### Models
+* FeedItem
 
 ### Collections
+* FeedItems
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+* FeedIndex (composite view, FeedIndexItem subview)
+* FeedIndexItem (composite view, PostsIndexItem subview)
 
 ## Gems/Libraries
 

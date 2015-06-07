@@ -1,24 +1,28 @@
-# Flux-capacitr
+# BowserBook
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: tk 6/9/15
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+BowserBook is a clone of facebook made for characters in the Mario universe. 
+Key features: 
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Users can create accounts
+- [ ] Users can log in / log out
+- [ ] Users have profile pages
+- [ ] Profile pages have 'about' user info
+- [ ] Users can add statuses to their page
+- [ ] Profile pages have a 'wall' of posts and statuses
+- [ ] Posts have full CRUD. Posts can have comments (CRD)
+- [ ] Users are searchable
+- [ ] Users can add / remove friends to see their profiles
+- [ ] Users can interact with other users (messages, pokes)
+- [ ] Home page has feed showing recent posts and updates by friends
+- [ ] User has notifications for activity involving them
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,59 +33,83 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: User Authentication, Profile Page, Edit User Form (~1 day)
+Checkpoints: 
+  - Implement user creation and authentication
+  - Set up user profile page as landing page
+  - Profile page will display user info and link to edit form
+  - Initial landing page / edit form is Rails / ERB only
+  - Push to Heroku and ensure production site / database works
+
+After Phase 1, users should be able to log in, log out, and edit their profile information.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2a: Add Posts and Wall to Profile Page in Backbone (~2 days)
+Checkpoints:
+  - Create API endpoints to serve JSON data on users, and start routing in Backbone
+  - Rewrite profile page as backbone template and implement model and view
+  - Create Post model. Users can delete and update posts
+  - Write wall view/template (under posts/index)
+
+After Phase 2a, Posts should be fully functional. A user's wall should display all posts 'about' that user. Statuses are a subset of Posts. Site should be single page except for sign-up / sign-in.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 2b: Add Comments to Posts (~1 day)
+Checkpoints: 
+  - Create comment model, collection, and associations to posts
+  - PostsIndexItem has form for new comment
+
+Phase 2b adds comments to Posts. After this phase, the interactions between users and posts should be completed (excepting likes). 
+
+[Details][phase-two]
+
+### Phase 3: Friends (~1.5 days)
+Checkpoints:
+  - Users profiles are searchable by name using the navbar
+  - Users can add and remove friends. This is a symmetric relationship (requires acceptance of a Friend Request)
+  - User profile page shows list of friends
+  - Users can only see / post to the walls of friends
+  
+Before Phase 3, there is no restriction on what content of other users a user can access. After Phase 3, users must add another user as a friend (and have that request accepted) before seeing another user's wall and posting to it. Other users can now be found by search. A list of a user's friends will show up on their profile page. 
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Interacting With Friends (~1.5 days)
+Checkpoints: 
+  - Users can 'poke' friends, pokes display to current user only on show page
+  - Users can send friends private messages
+  - Users can read their messages from friends
+
+Phase 4 adds more complex user interactions in pokes and private messages. Messages should be unread by default and be marked as read once viewed by the user. Messages should be accessible through the user show page. 
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: The Home Page and News Feed (~1 day)
+Checkpoints: 
+  - Landing page is now a News Feed page
+  - News Feed page displays posts and status updates by a user's friends
+
+Phase 5 should not greatly impact the functionality of the models of the site. The News Feed page should take currently implemented models and collections and organize them visually for the user in the form of a News Feed. 
 
 [Details][phase-five]
 
+### Phase 6: Notifications (~1 day)
+Checkpoints: 
+  - All actions produce notifications visible to the target user
+
+Users' actions create notifications viewable by other users on log-in. 
+
+[Details][phase-six]
+
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
+- [ ] Posts can have likes. User profile has tab to see all liked posts
+- [ ] BowserBook suggests friends for users to add
+- [ ] Pagination/infinite scroll for News Feed
+- [ ] Users can add pictures and create albums. Users can put pictures in posts. 
+- [ ] Users can play a game and see high scores by other users
 - [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

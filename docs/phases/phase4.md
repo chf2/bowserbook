@@ -1,20 +1,33 @@
-# Phase 4: User Feeds
+# Phase 4: User Interaction -- Pokes and Messages
 
 ## Rails
 ### Models
+* Poke
+* Message
 
 ### Controllers
-Api::PostsController (feed)
+* Api::PokesController (create, update, destroy)
+* Api::MessagesController (create, show, destroy, index)
 
 ### Views
-posts/feed.json.jbuilder
+* messages/index.json.jbuilder
+* messages/show.json.jbuilder
 
 ## Backbone
 ### Models
+* Poke
+* Message
 
 ### Collections
+* Pokes
+* Messages
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* PokesIndex (composite view, PokeIndexItem subview)
+* PokesIndexItem
+* MessagesIndex (composite view, MessagesIndexItem subview)
+* MessagesIndexItem
+* MessageShow
+* MessageNew
 
 ## Gems/Libraries

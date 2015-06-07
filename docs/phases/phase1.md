@@ -1,22 +1,18 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 1: User Authentication, Basic Profile Page, Update Profile Page
 
 ## Rails
 ### Models
 * User
-* Blog
-* Post
 
 ### Controllers
-* UsersController (create, new)
+* UsersController (create, new, edit, update, show)
 * SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* users/show.html.erb
+* users/edit.html.erb
 
 ## Backbone
 ### Models
@@ -26,3 +22,5 @@
 ### Views
 
 ## Gems/Libraries
+* BCrypt
+* Bootstrap
