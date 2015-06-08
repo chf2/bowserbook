@@ -3,24 +3,25 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
-![feed-show]
+## User Show (landing page until Phase 5)
+![user-show]
 
-## Blog Show
-![blog-show]
+## User Form
+![user-form]
 
-## Post Show
-![post-show]
+## Messages Index
+![messages-index]
 
-## Post Form
-![post-form]
+## Message New
+![message-new]
 
-## Search Results
-![search-results]
+## Message Show
+![message-show]
 
 [new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[user-show]: ./wireframes/user_show.png
+[user-form]: ./wireframes/user_form.png
+[feed-index]: ./wireframes/feed_index.png
+[messages-index]: ./wireframes/messages_index.png
+[message-new]: ./wireframes/message_new.png
+[message-show]: ./wireframes/message_show.png
