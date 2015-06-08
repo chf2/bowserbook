@@ -1,7 +1,10 @@
 # View Wireframes
 
-## New Session
+## New Session (initial landing page)
 ![new-session]
+
+## New User (initial landing page)
+![new-user]
 
 ## User Show (landing page until Phase 5)
 ![user-show]
@@ -19,6 +22,7 @@
 ![message-show]
 
 [new-session]: ./wireframes/new_session.png
+[new-user]: ./wireframes/new_user.png
 [user-show]: ./wireframes/user_show.png
 [user-form]: ./wireframes/user_form.png
 [feed-index]: ./wireframes/feed_index.png
