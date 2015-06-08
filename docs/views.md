@@ -3,7 +3,7 @@
 ## New Session (initial landing page)
 ![new-session]
 
-## New User (initial landing page)
+## New User
 ![new-user]
 
 ## User Show (landing page until Phase 5)

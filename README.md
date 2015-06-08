@@ -20,6 +20,7 @@ Key features:
 - [ ] Users are searchable
 - [ ] Users can add / remove friends to see their profiles
 - [ ] Users can interact with other users (messages, pokes)
+- [ ] Messages are marked as read / unread and are private to recipient
 - [ ] Home page has feed showing recent posts and updates by friends
 - [ ] User has notifications for activity involving them
 
