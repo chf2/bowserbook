@@ -12,6 +12,9 @@
 ## User Form
 ![user-form]
 
+## Feed Index
+![feed-index]
+
 ## Messages Index
 ![messages-index]
 
