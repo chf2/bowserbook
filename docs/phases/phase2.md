@@ -32,6 +32,8 @@
 * PostsIndexItem (composite view, contains CommentsIndex subview)
 * CommentsIndex (composite view, contains CommentsIndexItem subview)
 * CommentsIndexItem
+* Navbar
 
 ## Gems/Libraries
 * SerializeJSON
+* ImageMagick

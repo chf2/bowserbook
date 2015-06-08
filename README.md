@@ -1,8 +1,8 @@
 # BowserBook
 
-[Heroku link][heroku]
+[bowserbook.com][heroku]
 
-[heroku]: tk 6/9/15
+[heroku]: https://www.bowserbook.com
 
 ## Minimum Viable Product
 BowserBook is a clone of facebook made for characters in the Mario universe. 
