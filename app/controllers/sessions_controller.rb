@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if user
       log_in(user)
-      redirect_to user_url(user)
+      redirect_to "#/profiles/#{user.id}"
     else
       flash[:errors] = "Invalid credentails, please try again."
       render :new

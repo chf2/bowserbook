@@ -1,0 +1,41 @@
+<h1>Edit Profile</h1>
+<form>
+  <div class="form-group">
+    <label for="user-username">Username:</label><br>
+    <input type="text" 
+           name="user[username]" 
+           value="<%= user.escape('username') %>"
+           id="user-username"
+           class="form-control">
+    <br>
+    <label for="user-location">Location:</label><br>
+    <input type="text" 
+           name="user[location]" 
+           value="<%= user.escape('location') %>"
+           id="user-location"
+           class="form-control">
+    <br>
+    <label for="user-rival">Rival:</label><br>
+    <input type="text" 
+           name="user[rival]" 
+           value="<%= user.escape('rival') %>"
+           id="user-rival"
+           class="form-control">
+    <br>
+    <label for="user-interests">Interests:</label><br>
+    <input type="text" 
+           name="user[interests]" 
+           value="<%= user.escape('interests') %>"
+           id="user-interests"
+           class="form-control">
+    <br>
+    <label for="user-birthday">Birthday:</label><br>
+    <input type="date"
+           name="user[birthday]" 
+           value="<%= user.escape('birthday') %>"
+           id="user-birthday"
+           class="form-control">
+    <br>
+    <input type="submit" value="Update Profile" class="btn btn-primary">
+  </div>
+</form>

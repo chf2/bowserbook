@@ -1,0 +1,7 @@
+<h1><%= user.escape('username') %>'s Profile</h1>
+<img class="profile-image" src="<%= user.escape('image_url') %>">
+<p>Location: <%= user.escape('location') %></p>
+<p>Rival: <%= user.escape('rival') %></p>
+<p>Interests: <%= user.escape('interests') %></p>
+<p>Birthday: <%= user.escape('birthday') %></p>
+<a href="/#/profiles/<%= user.id %>/edit">Edit Profile</a>

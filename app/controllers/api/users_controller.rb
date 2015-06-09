@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      redirect_to user_url(@user)
+      redirect_to "#/profiles/#{@user.id}"
     else
       flash[:errors] = @user.errors.full_messages
       render :new
@@ -19,12 +19,10 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update
-      flash[:success] = "Profile updated!"
-      redirect_to user_url(@user)
+    if @user.update(user_params)
+      render :show
     else
-      flash[:errors] = @user.errors.full_messages
-      render :edit
+      render json: @user.errors.full_messages
     end
   end
 
@@ -32,5 +30,8 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def index
+    @users = User.all
+  end
 
 end

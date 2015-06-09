@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">BowserBook</a>
+    </div>
+    <!-- Users Search TKTKTKTK -->
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </form>
+
+    <!-- Main Links -->
+    <ul class="nav navbar-nav">
+      <li><a href="#/profiles/<%= window.CURRENT_USER_ID %>">Profile</a></li>
+      <li><a href="#">Feed</a></li>
+      <li><a href="#">Messages</a></li>
+      <li><a href="#">Notifications</a></li>
+    </ul>
+    <!-- Sign Out -->
+    <button type="button" class="btn btn-default navbar-btn">Sign Out</button>
+  </div><!-- /.container-fluid -->
+</nav>

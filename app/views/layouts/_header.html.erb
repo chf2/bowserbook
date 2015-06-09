@@ -1,4 +1,4 @@
 <% if logged_in? %>
-  <%= button_to "Sign Out", session_url, method: :delete %>
+  <script>Window.CURRENT_USER_ID = "<%= current_user.id %>"</script>
 <% end %>
 
