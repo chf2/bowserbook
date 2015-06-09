@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.1'
+gem 'underscore'
+gem 'backbone-on-rails'
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
