@@ -5,7 +5,6 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
   className: 'profile-container',
 
   initialize: function () {
-    
     var landingView = new BowserBook.Views.ProfileLanding({
       model: this.model
     });
@@ -13,7 +12,8 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model
     });
     var wallView = new BowserBook.Views.Wall({
-      model: this.model
+      model: this.model,
+      collection: this.model.wallPosts()
     });
     this.addSubview('.landing-container', landingView);
     this.addSubview('.sidebar-container', sidebarView);

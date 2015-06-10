@@ -1,12 +1,12 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
   before_action :require_logged_in
 
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      render :json @post
+      render json: @post
     else
-      render :json @post.errors.full_messages
+      render json: @post.errors.full_messages
     end
   end
 
@@ -17,9 +17,9 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update
-      render :json @post
+      render json: @post
     else
-      render :json @post.errors.full_messages
+      render json: @post.errors.full_messages
     end
   end
 

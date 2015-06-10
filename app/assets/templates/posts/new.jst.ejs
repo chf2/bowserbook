@@ -1,4 +1,20 @@
-<h3>Create a new post!</h3>
+<% if (about_id == window.CURRENT_USER_ID) { %>
+  <% var labelValue = "Update Status", submitValue = "Post Status"; %>
+<% } else { %>
+  <% var labelValue = "Post to Wall", submitValue = "Create Post"; %>
+<% } %> 
+
 <form>
   <div class="form-group">
-    <<textarea name="post[body]"></textarea>
+    <label for="post-body"><%= labelValue %></label>
+    <input type="hidden" name="post[about_id]" value="<%= about_id %>">
+    <textarea name="post[body]" 
+              placeholder="What do you want to say?"
+              id="post-body"
+              class="form-control"></textarea>
+    <br>
+    <input type="submit" 
+           value="<%= submitValue %>" 
+           class="btn btn-success">
+  </div>
+</form>

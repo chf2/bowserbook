@@ -36,7 +36,8 @@ BowserBook.Routers.Router = Backbone.Router.extend({
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(this._currentView.render().$el);
+    this.$rootEl.html(this._currentView.$el);
+    this._currentView.render();
   }
 
 });
