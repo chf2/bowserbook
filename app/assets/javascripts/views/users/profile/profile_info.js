@@ -1,9 +1,9 @@
-BowserBook.Views.ProfileLanding = Backbone.View.extend({
-  template: JST['profile/landing'],
+BowserBook.Views.ProfileInfo = Backbone.View.extend({
+  template: JST['profile/info'],
 
-  className: 'landing',
+  className: 'profile-info',
 
-  intialize: function () {
+  initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
 

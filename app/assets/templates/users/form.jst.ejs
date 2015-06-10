@@ -1,6 +1,14 @@
-<h1>Edit Profile</h1>
+<h1>Update Your Profile</h1>
 <form>
   <div class="form-group">
+    <label for="user-summary">Summary:</label><br>
+    <textarea
+           name="user[summary]" 
+           value="<%= user.escape('summary') %>"
+           id="user-summary"
+           class="form-control"
+           placeholder="Tell us a little about yourself..."></textarea>
+    <br>
     <label for="user-username">Username:</label><br>
     <input type="text" 
            name="user[username]" 
