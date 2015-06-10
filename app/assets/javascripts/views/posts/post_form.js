@@ -11,6 +11,7 @@ BowserBook.Views.PostForm = Backbone.View.extend({
     this.model.save(params, {
       success: function () {
         this.collection.add(this.model);
+        $(event.currentTarget).find('textarea').val('');
       }.bind(this)
     });
   },
