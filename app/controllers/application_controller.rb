@@ -36,7 +36,8 @@ class ApplicationController < ActionController::Base
       :interests,
       :birthday,
       :image_url,
-      :background_image_url
+      :background_image_url,
+      :status
     )
   end
 end

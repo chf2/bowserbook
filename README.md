@@ -10,10 +10,10 @@ Key features:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Users can create accounts
-- [ ] Users can log in / log out
-- [ ] Users have profile pages
-- [ ] Profile pages have 'about' user info
+- [X] Users can create accounts
+- [X] Users can log in / log out
+- [X] Users have profile pages
+- [X] Profile pages have 'about' user info
 - [ ] Users can add statuses to their page
 - [ ] Profile pages have a 'wall' of posts and statuses
 - [ ] Posts have full CRUD. Posts can have comments (CRD)

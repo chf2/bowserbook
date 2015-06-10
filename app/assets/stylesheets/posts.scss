@@ -11,9 +11,18 @@
   }
 }
 
+.post-header {
+  padding-top: 5px; 
+
+  a {
+    font-size: 16px;
+  }
+}
+
 .post-header-img {
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
+  margin: 0 10px;
   border: 1px solid #E7E7E7;
   border-radius: 2px;
   overflow: hidden;

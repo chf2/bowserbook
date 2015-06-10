@@ -8,7 +8,9 @@ BowserBook.Views.PostForm = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.model = new BowserBook.Models.Post({ about_id: options.about_id});
+    if (!options.model) {
+      this.model = new BowserBook.Models.Post({ about_id: options.about_id});
+    }
   },
 
   createPost: function (event) {

@@ -9,7 +9,7 @@ BowserBook.Views.PostsIndex = Backbone.CompositeView.extend({
 
   addPost: function (post) {
     var postView = new BowserBook.Views.PostIndexItem({ model: post });
-    this.addSubview('.wall-posts', postView);
+    this.addSubview('.wall-posts', postView, true);
   },
 
   render: function () {
