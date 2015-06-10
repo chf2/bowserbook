@@ -26,7 +26,6 @@ BowserBook.Views.UserForm = Backbone.View.extend({
     userForm.model.save(params, {
       success: function () {
         userForm.collection.add(userForm.model, { merge: true });
-        debugger
         Backbone.history.navigate(
           '/profiles/' + userForm.model.id, 
           { trigger: true } 
