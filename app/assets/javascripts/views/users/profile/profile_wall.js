@@ -4,8 +4,10 @@ BowserBook.Views.Wall = Backbone.CompositeView.extend({
   className: 'wall',
 
   initialize: function () {
+    this.listenTo(this.collection, 'sync', this.render);
+
     var newPostView = new BowserBook.Views.PostForm({
-      model: new BowserBook.Models.Post({ about_id: this.model.id }),
+      about_id: this.model.id,
       collection: this.collection
     });
     var wallPostsView = new BowserBook.Views.PostsIndex({

@@ -1,3 +1,20 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.post-index-item {
+  min-height: 180px;
+  width: 500px;
+  margin-bottom: 10px;
+  border: 1px #CCC solid;
+  border-radius: 6px;
+  padding: 8px 15px 10px 10px;
+
+  .post-glyph {
+    text-align: right;
+  }
+}
+
+.post-header-img {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #E7E7E7;
+  border-radius: 2px;
+  overflow: hidden;
+}

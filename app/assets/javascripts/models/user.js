@@ -3,7 +3,7 @@ BowserBook.Models.User = Backbone.Model.extend({
 
   parse: function (response) {
     if (response.wall_posts) {
-      this.wallPosts().set(response.wall_posts);
+      this.wallPosts().set(response.wall_posts, { parse: true });
       delete response.wall_posts;
     }
 
@@ -14,7 +14,7 @@ BowserBook.Models.User = Backbone.Model.extend({
     if (!this._wallPosts) {
       this._wallPosts = new BowserBook.Collections.Posts([], { user: this });
     }
-
+    
     return this._wallPosts;
   }
 });

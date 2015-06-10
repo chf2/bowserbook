@@ -1,8 +1,14 @@
 BowserBook.Views.PostForm = Backbone.View.extend({
   template: JST['posts/new'],
 
+  className: 'new-post-form',
+
   events: {
     'submit form': 'createPost'
+  },
+
+  initialize: function (options) {
+    this.model = new BowserBook.Models.Post({ about_id: options.about_id});
   },
 
   createPost: function (event) {
@@ -12,6 +18,7 @@ BowserBook.Views.PostForm = Backbone.View.extend({
       success: function () {
         this.collection.add(this.model);
         $(event.currentTarget).find('textarea').val('');
+        this.render();
       }.bind(this)
     });
   },
