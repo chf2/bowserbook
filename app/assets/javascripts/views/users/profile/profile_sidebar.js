@@ -1,7 +1,7 @@
 BowserBook.Views.ProfileSidebar = Backbone.CompositeView.extend({
   template: JST['profile/sidebar'],
 
-  className: 'col-xs-3 sidebar',
+  className: 'sidebar',
 
   initialize: function () {
     var view = new BowserBook.Views.ProfileInfo({

@@ -7,8 +7,11 @@ class User < ActiveRecord::Base
     :image_url, 
     presence: true
   )
-
   validates :password, length: { minimum: 6, allow_nil: true }
+  
+  has_many :posts, foreign_key: :author_id
+  has_many :wall_posts, class_name: "Post", foreign_key: :about_id
+
   after_initialize :ensure_session_token, :ensure_image_url
 
   def self.find_by_credentials(username, password)
