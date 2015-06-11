@@ -33,6 +33,12 @@ BowserBook.Views.PostForm = Backbone.View.extend({
         this.render();
       }.bind(this)
     });
+    
+    if (this.aboutId() == window.CURRENT_USER_ID) {
+      var user = new BowserBook.Models.User({ id: this.aboutId() });
+      user.set({ status: params['post']['body'] });
+      user.save();
+    }
   },
 
   render: function () {

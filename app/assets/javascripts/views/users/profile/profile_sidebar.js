@@ -7,7 +7,7 @@ BowserBook.Views.ProfileSidebar = Backbone.CompositeView.extend({
     var view = new BowserBook.Views.ProfileInfo({
       model: this.model
     });
-    this.addSubview('#profile-info', view);
+    this.addSubview('.profile-info-container', view);
   },
 
   render: function () {

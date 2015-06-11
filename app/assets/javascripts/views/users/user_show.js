@@ -5,17 +5,16 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
   className: 'profile-container',
 
   initialize: function () {
-    var landingView = new BowserBook.Views.ProfileLanding({
-      model: this.model
-    });
-    var sidebarView = new BowserBook.Views.ProfileSidebar({
-      model: this.model
-    });
+    var landingView = new BowserBook.Views.ProfileLanding({ model: this.model });
+    var profileNavView = new BowserBook.Views.ProfileNav({ model: this.model });
+    var sidebarView = new BowserBook.Views.ProfileSidebar({ model: this.model });
     var wallView = new BowserBook.Views.Wall({
       model: this.model,
       collection: this.model.wallPosts()
     });
+    
     this.addSubview('.landing-container', landingView);
+    this.addSubview('.profile-navbar-container', profileNavView);
     this.addSubview('.sidebar-container', sidebarView);
     this.addSubview('.wall-container', wallView);
   },

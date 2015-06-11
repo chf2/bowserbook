@@ -12,7 +12,7 @@ BowserBook.Views.ProfileLanding = Backbone.View.extend({
     this.$el.html(content);
     this.$el.css({
       'background-image': 'url(' + this.model.escape('background_image_url') + ')',
-      'background-size': '800px 300px'
+      'background-size': '800px 350px'
     });
     return this;
   }
