@@ -4,6 +4,11 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
 
   className: 'profile-container',
 
+  events: {
+    'click li.wall-swap': 'swapToWall',
+    'click li.info-swap': 'swapToInfo'
+  },
+
   initialize: function () {
     var landingView = new BowserBook.Views.ProfileLanding({ model: this.model });
     var profileNavView = new BowserBook.Views.ProfileNav({ model: this.model });
@@ -16,7 +21,7 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
     this.addSubview('.landing-container', landingView);
     this.addSubview('.profile-navbar-container', profileNavView);
     this.addSubview('.sidebar-container', sidebarView);
-    this.addSubview('.wall-container', wallView);
+    this.addSubview('.wall-info-container', wallView);
   },
 
   render: function () {
@@ -24,6 +29,34 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     return this;
-  }
+  },
 
+  swapHelper: function (event) {
+    this.$('.active-li').removeClass('active-li');
+    debugger;
+    $(event.currentTarget).addClass('active-li');
+    if (this.subviews('.wall-info-container')) {
+      this.removeSubview(
+        '.wall-info-container', 
+        this.subviews('.wall-info-container').first()
+      );
+    }
+  },
+
+  swapToInfo: function (event) {
+    this.swapHelper(event);
+    var infoView = new BowserBook.Views.ProfileInfoMain({
+      model: this.model
+    });
+    this.addSubview('.wall-info-container', infoView);
+  },
+
+  swapToWall: function (event) {
+    this.swapHelper(event);
+    var wallView = new BowserBook.Views.Wall({
+      model: this.model,
+      collection: this.model.wallPosts()
+    });
+    this.addSubview('.wall-info-container', wallView);
+  }
 });

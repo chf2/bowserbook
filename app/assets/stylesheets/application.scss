@@ -24,11 +24,6 @@
   margin: 0 auto;
 }
 
-.profile-navbar {
-  width: 800px;
-  height: 50px;
-}
-
 .content-container {
   width: 1000px;
 }
@@ -37,16 +32,12 @@
   margin: 0 auto;
 }
 
-.profile-image {
-  width: 100px;
-  height: 100px;
-}
-
 .sidebar {
   border-right: 1px solid #E7E7E7;
 }
 
 .landing {
+  position: relative;
   width: 800px;
   height: 300px;
 }

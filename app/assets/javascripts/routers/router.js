@@ -39,5 +39,4 @@ BowserBook.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(this._currentView.$el);
     this._currentView.render();
   }
-
 });
