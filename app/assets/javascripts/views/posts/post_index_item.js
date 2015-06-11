@@ -14,7 +14,8 @@ BowserBook.Views.PostIndexItem = Backbone.CompositeView.extend({
 
   editPost: function (event) {
     event.preventDefault();
-    console.log('edit clicked');
+    var editForm = new BowserBook.Views.PostForm({ model: this.model });
+    this.$el.html(editForm.render().$el);
   },
 
   destroyPost: function (event) {

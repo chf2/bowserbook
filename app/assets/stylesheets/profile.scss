@@ -8,9 +8,10 @@
   background-color: white;
   bottom: -40px;
   left: 40px;
+  z-index: 1;
 }
 
-.profile-navbar-container { margin-top: 10px; }
+.profile-navbar-container { margin-top: 30px; }
 
 .profile-navbar {
   width: 800px;
@@ -43,3 +44,8 @@
 .info-swap { border-right: 1px solid #E7E7E7; }
 
 .active-li { background-color: #E7E7E7; }
+
+.username-header {
+  font-size: 48px;
+  margin: 30px 0 0 50px;
+}

@@ -1,17 +1,23 @@
-<% if (about_id == window.CURRENT_USER_ID) { %>
+<% if (!post.isNew()) { %>
+  <% var labelValue = "Edit this post:", submitValue = "Update"; %>
+<% } else if (post.escape('about_id') == window.CURRENT_USER_ID) { %>
   <% var labelValue = "Update Status", submitValue = "Post Status"; %>
 <% } else { %>
   <% var labelValue = "Post to Wall", submitValue = "Create Post"; %>
-<% } %> 
+<% } %>
 
 <form>
   <div class="form-group">
     <label for="post-body"><%= labelValue %></label>
-    <input type="hidden" name="post[about_id]" value="<%= about_id %>">
+    <input type="hidden" 
+           name="post[about_id]" 
+           value="<%= post.escape('about_id') %>">
+
     <textarea name="post[body]" 
               placeholder="What do you want to say?"
               id="post-body"
-              class="form-control"></textarea>
+              class="form-control"><%= post.escape('body') %></textarea>
+
     <input type="submit" 
            value="<%= submitValue %>" 
            class="btn btn-success">

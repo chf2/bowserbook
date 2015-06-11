@@ -1,5 +1,5 @@
 BowserBook.Views.PostForm = Backbone.View.extend({
-  template: JST['posts/new'],
+  template: JST['posts/form'],
 
   className: 'new-post-form',
 
@@ -28,7 +28,9 @@ BowserBook.Views.PostForm = Backbone.View.extend({
     var params = $(event.currentTarget).serializeJSON();
     this.model.save(params, {
       success: function () {
-        this.collection.add(this.model);
+        if (this.collection) {
+          this.collection.add(this.model);
+        }
         this.model = new BowserBook.Models.Post({ about_id: this.aboutId() });
         this.render();
       }.bind(this)
@@ -43,7 +45,7 @@ BowserBook.Views.PostForm = Backbone.View.extend({
 
   render: function () {
     var content = this.template({ 
-      about_id: this.model.escape('about_id') 
+      post: this.model
     });
     this.$el.html(content);
     return this;

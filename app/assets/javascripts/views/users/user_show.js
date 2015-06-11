@@ -33,7 +33,6 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
 
   swapHelper: function (event) {
     this.$('.active-li').removeClass('active-li');
-    debugger;
     $(event.currentTarget).addClass('active-li');
     if (this.subviews('.wall-info-container')) {
       this.removeSubview(
