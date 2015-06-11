@@ -9,8 +9,18 @@ BowserBook.Views.PostForm = Backbone.View.extend({
 
   initialize: function (options) {
     if (!options.model) {
-      this.model = new BowserBook.Models.Post({ about_id: options.about_id});
+      this._aboutId = options.about_id;
+      this.model = new BowserBook.Models.Post({ about_id: this.aboutId() });
     }
+    this.listenTo(this.model, 'sync', this.render);
+  },
+
+  aboutId: function () {
+    if (!this._aboutId) {
+      this._aboutId = this.model.about_id;
+    } 
+
+    return this._aboutId;
   },
 
   createPost: function (event) {
@@ -19,7 +29,7 @@ BowserBook.Views.PostForm = Backbone.View.extend({
     this.model.save(params, {
       success: function () {
         this.collection.add(this.model);
-        $(event.currentTarget).find('textarea').val('');
+        this.model = new BowserBook.Models.Post({ about_id: this.aboutId() });
         this.render();
       }.bind(this)
     });

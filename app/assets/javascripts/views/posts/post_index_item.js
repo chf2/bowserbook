@@ -1,12 +1,16 @@
 BowserBook.Views.PostIndexItem = Backbone.CompositeView.extend({
   template: JST['posts/index_item'],
+  
+  className: 'post-index-item',
 
   events : {
     'click .delete': 'destroyPost',
     'click .edit': 'editPost'
   },
 
-  className: 'post-index-item',
+  initialize: function () {
+    this.listenTo(this.model, 'sync', this.render);
+  },
 
   editPost: function (event) {
     event.preventDefault();
