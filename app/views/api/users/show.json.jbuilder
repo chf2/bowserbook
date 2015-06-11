@@ -11,5 +11,5 @@ json.extract! @user,
   :username 
 
 json.wall_posts @user.wall_posts do |post|
-  json.partial! 'posts/post', post: post
+  json.partial! 'api/posts/post', post: post
 end
