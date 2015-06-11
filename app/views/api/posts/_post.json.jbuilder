@@ -6,3 +6,6 @@ json.extract! post,
 json.author_image_url post.author.image_url
 json.author_name post.author.username
 json.created_at time_ago_in_words(post.created_at)
+json.comments post.comments do |comment|
+  json.partial! 'api/comments/comment', comment: comment
+end

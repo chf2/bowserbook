@@ -9,7 +9,12 @@ BowserBook.Views.PostIndexItem = Backbone.CompositeView.extend({
   },
 
   initialize: function () {
+    this.collection = this.model.comments();
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.collection, 'add remove', this.render); // TODO: NECESSARY?
+
+    var commentFormView = new BowserBook.Views.CommentForm({ post: this.model });
+    this.addSubview('.comment-form-container', commentFormView);
   },
 
   editPost: function (event) {
@@ -20,7 +25,9 @@ BowserBook.Views.PostIndexItem = Backbone.CompositeView.extend({
 
   destroyPost: function (event) {
     event.preventDefault();
-    // this.model.comments().destroy();
+    this.collection.each(function (comment) {
+      comment.destroy();
+    });
     this.model.destroy();
     this.remove();
   },
@@ -28,6 +35,7 @@ BowserBook.Views.PostIndexItem = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template({ post: this.model });
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   }
 });

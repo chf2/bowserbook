@@ -1,0 +1,21 @@
+.comment-form-container {
+  :after {
+    content: "";
+    clear: both;
+    dispaly: block;
+  }
+}
+
+.comment-form input[type=text] {
+  height: 30px;
+  width: 345px;
+  border-radius: 2px;
+  padding: 5px;
+  border: 1px solid #E7E7E7;
+}
+
+.comment-form input[type=submit] {
+  height: 30px;
+  width: 130px;
+  border-radius: 2px;
+}

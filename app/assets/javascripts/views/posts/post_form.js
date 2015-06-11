@@ -4,7 +4,8 @@ BowserBook.Views.PostForm = Backbone.View.extend({
   className: 'new-post-form',
 
   events: {
-    'submit form': 'createPost'
+    'submit form': 'createPost',
+    'click .close': 'closeForm'
   },
 
   initialize: function (options) {
@@ -21,6 +22,12 @@ BowserBook.Views.PostForm = Backbone.View.extend({
     } 
 
     return this._aboutId;
+  },
+
+  closeForm: function () {
+    event.preventDefault();
+    this.remove();
+    // TODO: Fix massive bug where old post doesn't come back pls thx
   },
 
   createPost: function (event) {

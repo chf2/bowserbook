@@ -1,0 +1,16 @@
+<h5>Comment on <%= post.escape('author_name') %>'s post!</h5>
+<form>
+  <div class="form-group">
+    <input type="hidden" 
+           name="comment[post_id]" 
+           value="<%= post.id %>">
+
+    <input type="text"  
+           name="comment[body]" 
+           placeholder="Write a comment">
+
+    <input type="submit" 
+           value="Post Comment" 
+           class="btn-success btn-small pull-right">
+  </div>
+</form>

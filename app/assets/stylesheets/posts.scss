@@ -1,14 +1,16 @@
 .post-index-item {
-  min-height: 180px;
   margin: 0 0 10px 0;
-  border: 1px #CCC solid;
-  border-radius: 6px;
+  border: 1px #AAA solid;
   padding: 8px 15px 10px 20px;
 
+}
+
+.inner-post-container {
+  min-height: 210px;
+  border-bottom: 1px solid #CCC;
   .post-glyph {
     text-align: right;
   }
-
   &:hover .post-header-buttons {
     display:block;
   }
