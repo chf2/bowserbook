@@ -14,8 +14,8 @@ Key features:
 - [X] Users can log in / log out
 - [X] Users have profile pages
 - [X] Profile pages have 'about' user info
-- [ ] Users can add statuses to their page
-- [ ] Profile pages have a 'wall' of posts and statuses
+- [X] Users can add statuses to their page
+- [X] Profile pages have a 'wall' of posts and statuses
 - [ ] Posts have full CRUD. Posts can have comments (CRD)
 - [ ] Users are searchable
 - [ ] Users can add / remove friends to see their profiles

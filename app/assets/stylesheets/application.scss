@@ -30,6 +30,7 @@
 
 .navbar {
   margin: 0 auto;
+  padding-right: 20px;
 }
 
 .sidebar {
@@ -40,4 +41,9 @@
   position: relative;
   width: 800px;
   height: 300px;
+}
+
+.lower-profile-content {
+  padding-left: 20px;
+  padding-right: 20px;
 }

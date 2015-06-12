@@ -24,6 +24,8 @@ BowserBook.Views.CommentForm = Backbone.View.extend({
     this.model.save(params, {
       success: function () {
         this.post.comments().add(this.model);
+        this.model = new BowserBook.Models.Comment({ post: this.model.post });
+        this.render();
       }.bind(this)
     });
   }
