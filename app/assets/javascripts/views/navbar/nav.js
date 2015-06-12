@@ -4,7 +4,9 @@ BowserBook.Views.Nav = Backbone.View.extend({
   className: "navbar-container",
 
   events: {
-    'input #users-search': 'searchUsers'
+    'input #users-search': 'searchUsers',
+    'click .search-result': 'clearInput',
+    'click .navbar': 'clearInput',
   },
 
   initialize: function () {
@@ -30,7 +32,12 @@ BowserBook.Views.Nav = Backbone.View.extend({
     }.bind(this));
   },
 
-  getUserResuts: function (searchString) {
+  clearInput: function (event) {
+    this.$('#users-search').val('');
+    this.$('.search-results-container').empty();
+  },
+
+  getUserResults: function (searchString) {
     var results = [];
     this.collection.each(function(user) {
       if (user.escape('username').toLowerCase()
@@ -39,23 +46,22 @@ BowserBook.Views.Nav = Backbone.View.extend({
       {
         results.push(user);
       }
-
-      return results;
     });
+
+    return results;
   },
 
   searchUsers: function (event) {
     this.$('.search-results-container').empty();
     var searchString = $(event.currentTarget).val();
-    console.log('triggered');
     if (searchString.length === 0) {
       return;
     }
     this.collection.fetch({
       data: { queryString: searchString },
       success: function () {
-        var results = this.getUserResuts();
-        this.appendSearchResults(results);
+        var results = this.getUserResults.call(this, searchString);
+        this.appendSearchResults.call(this, results);
       }.bind(this)
     });
   }

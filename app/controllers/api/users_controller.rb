@@ -25,12 +25,10 @@ class Api::UsersController < ApplicationController
       results.each do |user_data|
         model_objects << { 'id' => user_data[0], 'username' => user_data[1] }
       end
+  # TODO: underscore ##throttle / debounce wait a certain amount of time to fire ajax requests
 
       render json: model_objects
     end
   end
 
 end
-    # # underscore ##throttle / debounce wait a certain amount of time to fire ajax requests
-    # # pass data with fetch
-    # # render: user.pluck(id, username)
