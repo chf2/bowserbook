@@ -8,7 +8,7 @@
 
 .comment-form input[type=text] {
   height: 30px;
-  width: 330px;
+  width: 290px;
   border-radius: 2px;
   padding: 5px;
   border: 1px solid #E7E7E7;
@@ -18,4 +18,17 @@
   height: 30px;
   width: 115px;
   border-radius: 2px;
+}
+
+.comment-img {
+  height: 30px;
+  width: 30px;
+  margin: 0 5px;
+}
+
+.comment-footer {
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 10px;
+  color: gray;
 }

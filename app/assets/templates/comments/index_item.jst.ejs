@@ -1,8 +1,14 @@
 <div class="comment-body">
+  <img src="<%= comment.escape('author_image_url') %>" 
+       class="comment-img">
   <%= comment.escape('body') %>
+  <% if (window.CURRENT_USER_ID == comment.escape('author_id')) { %>
+    <button class='close delete pull-right'>&times;</button>
+  <% } %>
 </div>
 <div class="comment-footer">
   Written by 
   <%= comment.escape('author_name') %> 
   <%= comment.escape('created_at') %> ago.
+  <hr />
 </div>
