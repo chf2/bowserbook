@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
@@ -9,11 +11,26 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.where("id = ?", params[:id])
+                .includes(posts: [:comments, :author]).first
   end
 
   def index
-    @users = User.all
+    query = params['queryString']
+    if query
+      results = User.where('UPPER(username) LIKE ?', '%' + query.upcase + '%')
+                    .limit(10)
+                    .pluck(:id, :username)
+      model_objects = []
+      results.each do |user_data|
+        model_objects << { 'id' => user_data[0], 'username' => user_data[1] }
+      end
+
+      render json: model_objects
+    end
   end
 
 end
+    # # underscore ##throttle / debounce wait a certain amount of time to fire ajax requests
+    # # pass data with fetch
+    # # render: user.pluck(id, username)

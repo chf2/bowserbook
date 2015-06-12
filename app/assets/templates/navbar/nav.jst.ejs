@@ -12,12 +12,17 @@
                name="username"
                id="users-search">
       </div>
+      <ul class="search-results-container"></ul>
     </div>
 
     <!-- Main Links -->
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#/profiles/<%= window.CURRENT_USER_ID %>">Profile</a></li>
-      <li><a href="#/">Feed</a></li>
+      <li>
+        <a href="#/profiles/<%= window.CURRENT_USER_ID %>">
+          <%= window.CURRENT_USER_NAME %>
+        </a>
+      </li>
+      <li><a href="#/">Home</a></li>
       <li><a href="#">Messages</a></li>
       <li><a href="#">Notifications</a></li>
     <!-- Sign Out -->
