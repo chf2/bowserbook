@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
     :username, 
     :password_digest, 
     :session_token, 
-    :image_url, 
     presence: true
   )
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -22,6 +21,11 @@ class User < ActiveRecord::Base
 
   def background_image_url
     return "" unless self.background_public_id
+    new_background_public_id = background_public_id.sub(
+                      '/image/upload/', 
+                      '/image/upload/bg'
+                     )
+    "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_background_public_id
   end
 
   def ensure_session_token
@@ -34,7 +38,7 @@ class User < ActiveRecord::Base
                       '/image/upload/', 
                       '/image/upload/c_limit,w_150'
                      )
-    'http://res.cloudinary.com/dbeva6z07/' + new_profile_public_id
+    "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_profile_public_id
   end
 
   def is_password?(password)
