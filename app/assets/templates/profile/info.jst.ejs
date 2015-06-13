@@ -1,6 +1,8 @@
 <h4>Latest Status</h4>
 <%= user.escape('status') %>
 <h4>About <%= user.escape('username') %></h4> 
+IU: <%= user.escape('image_url') %>
+TU: <%= user.escape('thumbnail_url') %>
 <%= user.escape('summary') %>
 <br><br>
 <% if (window.CURRENT_USER_ID == user.id) { %>

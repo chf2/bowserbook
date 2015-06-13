@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
                       '/image/upload/', 
                       '/image/upload/c_limit,w_150'
                      )
-    'http://res.cloudinary.com/demo' + new_profile_public_id
+    'http://res.cloudinary.com/dbeva6z07/' + new_profile_public_id
   end
 
   def is_password?(password)
@@ -62,6 +62,6 @@ class User < ActiveRecord::Base
                       '/image/upload/', 
                       '/image/upload/t_media_lib_thumb'
                      )
-    'http://res.cloudinary.com/demo' + new_profile_public_id
+    'http://res.cloudinary.com/dbeva6z07/' + new_profile_public_id
   end
 end
