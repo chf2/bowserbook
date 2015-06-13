@@ -20,8 +20,21 @@ class User < ActiveRecord::Base
     user && user.is_password?(password) ? user : nil
   end
 
+  def background_image_url
+    return "" unless self.background_public_id
+  end
+
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
+  end
+
+  def image_url
+    return "" unless self.profile_public_id
+    new_profile_public_id = profile_public_id.sub(
+                      '/image/upload/', 
+                      '/image/upload/c_limit,w_150'
+                     )
+    'http://res.cloudinary.com/demo' + new_profile_public_id
   end
 
   def is_password?(password)
@@ -41,5 +54,14 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom.urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  def thumbnail_url
+    return "" unless self.profile_public_id
+    new_profile_public_id = self.profile_public_id.sub(
+                      '/image/upload/', 
+                      '/image/upload/t_media_lib_thumb'
+                     )
+    'http://res.cloudinary.com/demo' + new_profile_public_id
   end
 end

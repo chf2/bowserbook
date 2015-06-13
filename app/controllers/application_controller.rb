@@ -35,8 +35,8 @@ class ApplicationController < ActionController::Base
       :rival,
       :interests,
       :birthday,
-      :image_url,
-      :background_image_url,
+      :profile_public_id,
+      :background_public_id,
       :status
     )
   end
