@@ -8,20 +8,14 @@ author_id   | integer   | not null, foreign key (references users)
 post_id     | integer   | not null, foreign key (references posts)
 body        | text      |
 
-## friend_requests
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-friender_id | integer   | not null, foreign key (references users)
-friended_id | integer   | not null, foreign key (references users), indexed on [friender_id, friended_id], unique: true
-accepted    | boolean   | not null, default: false
-
 ## friendships
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 friender_id | integer   | not null, foreign key (references users)
 friended_id | integer   | not null, foreign key (references users), indexed on [friender_id, friended_id], unique: true
+accepted    | boolean   | 
+responded   | boolean   | not null, default: false
 
 ## messages
 column name | data type | details

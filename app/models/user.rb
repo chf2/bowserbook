@@ -32,6 +32,26 @@ class User < ActiveRecord::Base
     self.session_token ||= SecureRandom.urlsafe_base64
   end
 
+  def friend_requests_in
+    Friendship.where('friended_id = ? AND responded = FALSE', self.id)
+  end
+
+  def friend_requests_out
+    Friendship.where('friender_id = ? AND responded = FALSE', self.id)
+  end
+
+  def friends
+    user_ids = Friendship.where(
+      '(friended_id = :id OR friender_id = :id) AND accepted = TRUE',
+       id: self.id
+    ).pluck(:friended_id, :friender_id)
+     .flatten
+     .uniq
+     .reject { |id| id == self.id }
+
+    User.where(id: user_ids).all
+  end
+
   def image_url
     return "" unless self.profile_public_id
     new_profile_public_id = profile_public_id.sub(

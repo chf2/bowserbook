@@ -16,7 +16,7 @@ Key features:
 - [X] Profile pages have 'about' user info
 - [X] Users can add statuses to their page
 - [X] Profile pages have a 'wall' of posts and statuses
-- [ ] Posts have full CRUD. Posts can have comments (CRD)
+- [X] Posts have full CRUD. Posts can have comments (CRD)
 - [X] Users are searchable
 - [ ] Users can add / remove friends to see their profiles
 - [ ] Users can interact with other users (messages, pokes)
