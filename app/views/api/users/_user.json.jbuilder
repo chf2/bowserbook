@@ -5,9 +5,10 @@ json.extract! user,
   :image_url, 
   :interests, 
   :location, 
-  :rival, 
+  :rival,
   :status,
   :summary,
+  :thumbnail_url,
   :username
 
 json.wall_posts user.wall_posts do |post|

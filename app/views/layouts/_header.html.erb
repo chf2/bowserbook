@@ -2,6 +2,7 @@
   <script>
     window.CURRENT_USER_ID = "<%= current_user.id %>"
     window.CURRENT_USER_NAME = "<%= current_user.username %>"
-  </script>
+    window.CLOUDINARY_JSON = "<%= cloudinary_json %>"
+    $.cloudinary.config({"api_key":"351325839121153","cloud_name":"dbeva6z07","upload_preset":"w38jezfl"});
+  </script>  
 <% end %>
-

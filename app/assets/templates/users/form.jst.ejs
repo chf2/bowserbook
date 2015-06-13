@@ -4,10 +4,9 @@
     <label for="user-summary">Summary:</label><br>
     <textarea
            name="user[summary]" 
-           value="<%= user.escape('summary') %>"
            id="user-summary"
            class="form-control"
-           placeholder="Tell us a little about yourself..."></textarea>
+           placeholder="Tell us a little about yourself..."><%= user.escape('summary') %></textarea>
     <br>
     <label for="user-username">Username:</label><br>
     <input type="text" 
@@ -43,6 +42,20 @@
            value="<%= user.escape('birthday') %>"
            id="user-birthday"
            class="form-control">
+    <br>
+    <label for="profile-image-upload">Upload Profile Image:</label><br>
+    <input name="file" type="file"
+           id="profile-image-upload"
+           class="cloudinary-fileupload"
+           data-cloudinary-field="user[profile_public_id]" 
+           data-form-data="<%= window.CLOUDINARY_JSON %>">
+    <br>
+    <label for="background-image-upload">Upload Background Image:</label><br>
+    <input name="file" type="file"
+           id="background-image-upload" 
+           class="cloudinary-fileupload" 
+           data-cloudinary-field="user[background_image_url]"
+           data-form-data="<%= window.CLOUDINARY_JSON %>">
     <br>
     <input type="submit" value="Update Profile" class="btn btn-primary">
   </div>

@@ -14,7 +14,13 @@ BowserBook.Views.UserForm = Backbone.View.extend({
   render: function () {
     var content = this.template({ user: this.model });
     this.$el.html(content);
+    this.cloudinaryify();
     return this;
+  },
+
+  cloudinaryify: function () {
+    this.$('#profile-image-upload').cloudinary_fileupload();
+    this.$('#background-image-upload').cloudinary_fileupload();
   },
 
   submit: function (event) {

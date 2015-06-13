@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.widget
+//= require jquery.iframe-transport
+//= require jquery.fileupload
+//= require jquery.cloudinary
+//= require cloudinary
 //= require serialize_json
 //= require bootstrap
 //= require turbolinks
