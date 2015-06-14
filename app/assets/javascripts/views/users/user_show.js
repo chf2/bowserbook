@@ -6,7 +6,8 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
 
   events: {
     'click li.wall-swap': 'swapToWall',
-    'click li.info-swap': 'swapToInfo'
+    'click li.info-swap': 'swapToInfo',
+    'click li.friends-swap': 'swapToFriends'
   },
 
   initialize: function () {
@@ -48,6 +49,15 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model
     });
     this.addSubview('.wall-info-container', infoView);
+  },
+
+  swapToFriends: function (event) {
+    this.swapHelper(event);
+    var friendsView = new BowserBook.Views.ProfileFriendsIndex({
+      model: this.model,
+      collection: this.model.friends()
+    });
+    this.addSubview('.wall-info-container', friendsView);
   },
 
   swapToWall: function (event) {

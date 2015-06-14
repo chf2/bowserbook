@@ -33,11 +33,11 @@ class User < ActiveRecord::Base
   end
 
   def friend_requests_in
-    Friendship.where('friended_id = ? AND responded = FALSE', self.id)
+    Friendship.where('friended_id = ? AND responded = FALSE', self.id).all
   end
 
   def friend_requests_out
-    Friendship.where('friender_id = ? AND responded = FALSE', self.id)
+    Friendship.where('friender_id = ? AND responded = FALSE', self.id).all
   end
 
   def friends
