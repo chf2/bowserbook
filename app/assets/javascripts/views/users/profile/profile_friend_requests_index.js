@@ -4,14 +4,17 @@ BowserBook.Views.FriendRequestsIndex = Backbone.CompositeView.extend({
   className: "friend-requests-index",
 
   initialize: function () {
-    this.listenTo(this.collection, 'sync change', this.render);
+    this.listenTo(this.collection, 'sync add remove', this.render);
     this.listenTo(this.collection, 'add', this.addFriendRequest);
     this.collection.each(this.addFriendRequest.bind(this));
   },
 
   addFriendRequest: function (request) {
     var indexItemView = new BowserBook.Views.FriendRequestIndexItem({
-      model: request
+      model: request,
+      user: this.model,
+      collection: this.collection,
+      fromLanding: false
     });
     this.addSubview('.friend-requests-list', indexItemView);
   },

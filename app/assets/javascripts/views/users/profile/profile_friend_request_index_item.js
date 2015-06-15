@@ -8,13 +8,32 @@ BowserBook.Views.FriendRequestIndexItem = Backbone.View.extend({
     'click .delete-friend-request': 'deleteFriendRequest'
   },
 
+  initialize: function (options) {
+    this.user = options.user;
+    this.fromLanding = options.fromLanding;
+  },
+
   acceptFriendRequest: function (event) {
     this.model.set({
       responded: true,
       accepted: true
     });
-    this.model.save();
-    this.remove();
+    this.model.save({}, {
+      success: function (model) {
+        var base = (this.fromLanding) ? 'friended' : 'friender'
+        this.user.friends().add({
+          id: this.model.escape(base +'_id'),
+          username: this.model.escape(base +'_username'),
+          image_url: this.model.escape(base +'_image_url'),
+          status: this.model.escape(base +'_status')
+        });
+        if (this.collection) {
+          this.collection.remove(this.model);
+        }
+        this.remove();
+      }.bind(this)
+    });
+    ;
   },
 
   deleteFriendRequest: function (event) {
@@ -22,12 +41,20 @@ BowserBook.Views.FriendRequestIndexItem = Backbone.View.extend({
       responded: true,
       accepted: false
     });
-    this.model.save();
-    this.remove();
+    this.model.save({}, {
+      success: function () {
+        if (this.collection) {
+          this.collection.remove(this.model);
+        }
+        this.remove();
+      }.bind(this)
+    });
   },
 
   render: function () {
-    var content = this.template({ request: this.model });
+    var content = this.template({
+     request: this.model, fromLanding: this.fromLanding 
+    });
     this.$el.html(content);
     return this;
   }

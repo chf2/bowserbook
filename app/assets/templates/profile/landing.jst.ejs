@@ -11,7 +11,11 @@
 <% } else if (user.escape('request_sent') === 'true') { %>
   <div class="landing-friend-status">Request Sent</div>
 <% } else if (user.escape('request_received') === 'true') { %>
-  <div class="landing-friend-status">Respond to Request TKTKTK</div>
+  <div class='landing-friend-status-respond'>  
+    <button class="btn btn-success respond-friend-request">
+      Respond to Friend Request
+    </button>
+  </div>
 <% } else { %>
   <button class='btn btn-success send-friend-request'>Send Friend Request</button>
 <% } %>

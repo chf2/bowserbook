@@ -1,10 +1,12 @@
-BowserBook.Views.ProfileLanding = Backbone.View.extend({
+BowserBook.Views.ProfileLanding = Backbone.CompositeView.extend({
   template: JST['profile/landing'],
 
   className: 'landing',
 
   events: {
-    'click .send-friend-request': 'sendFriendRequest'
+    'click .send-friend-request': 'sendFriendRequest',
+    'click .respond-friend-request': 'respondFriendRequest',
+    'click .friend-request-btn': 'render'
   },
 
   initialize: function () {
@@ -18,7 +20,21 @@ BowserBook.Views.ProfileLanding = Backbone.View.extend({
       'background-image': 'url(' + this.model.escape('background_image_url') + ')',
       'background-size': '800px 350px'
     });
+    this.attachSubviews();
     return this;
+  },
+
+  respondFriendRequest: function (event) {
+    var request = new BowserBook.Models.FriendRequest({ 
+      id: this.model.escape('request_received_id')
+    });
+    var friendRequestView = new BowserBook.Views.FriendRequestIndexItem({
+      model: request,
+      user: this.model,
+      fromLanding: true
+    });
+    this.addSubview('.landing-friend-status-respond', friendRequestView);
+    this.render();
   },
 
   sendFriendRequest: function (event) {

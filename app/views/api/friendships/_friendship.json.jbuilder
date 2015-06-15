@@ -1,0 +1,6 @@
+json.id friend_request.id
+json.friended_id friend_request.friended_id
+json.friender_id friend_request.friender_id
+json.friender_status friend_request.friender.status
+json.friender_username friend_request.friender.username
+json.friender_image_url friend_request.friender.image_url

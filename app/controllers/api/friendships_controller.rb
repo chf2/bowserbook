@@ -14,7 +14,7 @@ class Api::FriendshipsController < ApplicationController
   def update
     @friendship = Friendship.find(params[:id])
     if @friendship.update(friendship_update_params)
-      render json: @friendship
+      render :show # TODO: -- show is only used in specific case, not general
     else
       render json: @friendship.errors.full_messages
     end
@@ -24,6 +24,10 @@ class Api::FriendshipsController < ApplicationController
     friendship = Friendship.find(params[:id])
     friendship.destroy
     render json: {}
+  end
+
+  def show
+    @friendship = Friendship.find(params[:id])
   end
 
   private
@@ -37,6 +41,7 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def validate_current_user
-    render json: {} if current_user.id != params[:friendship][:friended_id]
+    friended_id = params[:friendship][:friended_id] 
+    render json: {} unless current_user.id == friended_id || friended_id.nil?
   end
 end

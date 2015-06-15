@@ -1,8 +1,10 @@
-<a href="/#/profiles/<%= request.escape('friender_id') %>">
-  <img src="<%= request.escape('friender_thumbnail_url') %>"
-       class="request-img">
-</a>
-&nbsp
-<%= request.escape('friender_username') %>
+<% if (!fromLanding) { %>
+  <a href="/#/profiles/<%= request.escape('friender_id') %>">
+    <img src="<%= request.escape('friender_image_url') %>"
+         class="request-img">
+  </a>
+  &nbsp
+  <%= request.escape('friender_username') %>
+<% } %>
 <button class="btn-primary friend-request-btn accept-friend-request">Confirm</button>
 <button class="btn-danger friend-request-btn delete-friend-request">Delete</button>

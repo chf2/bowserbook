@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
     return "" unless self.background_public_id
     new_background_public_id = background_public_id.sub(
                       '/image/upload/', 
-                      '/image/upload/bg'
+                      '/image/upload/t_bg'
                      )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_background_public_id
   end
@@ -86,6 +86,6 @@ class User < ActiveRecord::Base
                       '/image/upload/', 
                       '/image/upload/t_media_lib_thumb'
                      )
-    'http://res.cloudinary.com/dbeva6z07/' + new_profile_public_id
+    "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_profile_public_id
   end
 end
