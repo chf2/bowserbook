@@ -1,1 +1,16 @@
-<h1>FRIENDS INDEX</h1>
+<% if (friends.length === 0) { %>
+  <h3><%= user.escape('username') %> doesn't have any friends yet :(</h3>
+<% } else { %>
+  <h3><%= user.escape('username') %>'s Friends</h3>
+  <table class="table table-striped profile-friend-table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Profile Pic</th>
+        <th>Latest Status</th>
+      </tr>
+    </thead>
+    <tbody class="profile-friends-container">
+    </tbody>
+  </table>
+<% } %>

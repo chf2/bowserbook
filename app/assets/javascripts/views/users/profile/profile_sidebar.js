@@ -4,10 +4,20 @@ BowserBook.Views.ProfileSidebar = Backbone.CompositeView.extend({
   className: 'sidebar',
 
   initialize: function () {
-    var view = new BowserBook.Views.ProfileInfo({
+    var profileInfoView = new BowserBook.Views.ProfileInfo({
       model: this.model
     });
-    this.addSubview('.profile-info-container', view);
+    var friendsIndexView = new BowserBook.Views.SidebarFriendsIndex({
+      model: this.model,
+      collection: this.model.friends()
+    });
+    var friendRequestsIndexView = new BowserBook.Views.FriendRequestsIndex({
+      model: this.model,
+      collection: this.model.friendRequestsIn()
+    });
+    this.addSubview('.friends-index-container', friendsIndexView);
+    this.addSubview('.profile-info-container', profileInfoView);
+    this.addSubview('.friend-requests-index-container', friendRequestsIndexView);
   },
 
   render: function () {

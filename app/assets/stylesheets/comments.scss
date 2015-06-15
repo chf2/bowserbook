@@ -1,11 +1,3 @@
-.comment-form-container {
-  :after {
-    content: "";
-    clear: both;
-    dispaly: block;
-  }
-}
-
 .comment-form input[type=text] {
   height: 30px;
   width: 290px;

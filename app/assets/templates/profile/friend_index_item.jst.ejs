@@ -1,4 +1,4 @@
-<%= friend.escape('username') %>
-<img class="profile-friend-index-item-img" 
-     src="<%= friend.escape('image_url') %>">
-Latest Status: <%= friend.escape('status') %>
+<td class="username"><%= friend.escape('username') %></td>
+<td><img class="profile-friend-index-item-img" 
+     src="<%= friend.escape('image_url') %>"></td>
+<td><%= friend.escape('status') %></td>

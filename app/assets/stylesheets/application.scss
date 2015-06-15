@@ -91,3 +91,11 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.clearfix {
+  :after {
+    content: "";
+    clear: both;
+    dispaly: block;
+  }
+}

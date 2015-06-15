@@ -1,5 +1,5 @@
-BowserBook.Views.ProfileFriendsIndex = Backbone.CompositeView.extend({
-  template: JST['profile/friends_index'],
+BowserBook.Views.SidebarFriendsIndex = Backbone.CompositeView.extend({
+  template: JST['profile/sidebar_friends_index'],
 
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
@@ -8,19 +8,16 @@ BowserBook.Views.ProfileFriendsIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var content = this.template({
-      user: this.model,
-      friends: this.collection
-    });
+    var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
     return this;
   },
 
   addFriend: function (friend) {
-    var indexItem = new BowserBook.Views.ProfileFriendIndexItem({ 
+    var indexItem = new BowserBook.Views.SidebarFriendIndexItem({ 
       model: friend
     });
-    this.addSubview('.profile-friends-container', indexItem);
-  }
+    this.addSubview('.sidebar-friends-list', indexItem);
+  },
 });

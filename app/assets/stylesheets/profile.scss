@@ -51,3 +51,38 @@
   left: 200px;
   color: white;
 }
+
+.profile-friend-index-item-img {
+  height: 60px;
+  width: 60px;
+}
+
+.profile-friend-table td.username {
+  font-size: 16px;
+  vertical-align: center;
+}
+
+.sidebar-friend-index-item-img {
+  width: 80px;
+  height: 80px;
+}
+
+.sidebar h4 {
+  text-align: center;
+}
+
+.sidebar-friends-list {
+  list-style: none;
+  padding-left: 0;
+  li {
+    float: left;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    padding: 5px;
+    a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
