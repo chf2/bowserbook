@@ -1,2 +1,17 @@
 <img class="profile-image" src="<%= user.escape('image_url') %>">
 <h1 class="username-header"><%= user.escape('username') %></h1>
+<% if (user.escape('is_a_friend') === 'true') { %> 
+  <div class="landing-friend-status">✓ Friends</div>
+<% } else if (user.id == window.CURRENT_USER_ID) { %>
+  <div class="landing-friend-status">
+    <a class="update-profile" href="/#/profiles/<%= user.id %>/edit">
+      Update Info
+    </a>
+  </div>
+<% } else if (user.escape('request_sent') === 'true') { %>
+  <div class="landing-friend-status">Request Sent</div>
+<% } else if (user.escape('request_received') === 'true') { %>
+  <div class="landing-friend-status">Respond to Request TKTKTK</div>
+<% } else { %>
+  <button class='btn btn-success send-friend-request'>Send Friend Request</button>
+<% } %>

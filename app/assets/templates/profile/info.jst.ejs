@@ -2,7 +2,4 @@
 <%= user.escape('status') %>
 <h4>About <%= user.escape('username') %></h4> 
 <%= user.escape('summary') %>
-<br><br>
-<% if (window.CURRENT_USER_ID == user.id) { %>
-  <a href="/#/profiles/<%= user.id %>/edit">Edit My Profile</a>
-<% } %>
+<br>

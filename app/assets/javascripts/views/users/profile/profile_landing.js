@@ -3,6 +3,10 @@ BowserBook.Views.ProfileLanding = Backbone.View.extend({
 
   className: 'landing',
 
+  events: {
+    'click .send-friend-request': 'sendFriendRequest'
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
@@ -15,5 +19,17 @@ BowserBook.Views.ProfileLanding = Backbone.View.extend({
       'background-size': '800px 350px'
     });
     return this;
+  },
+
+  sendFriendRequest: function (event) {
+    var newFriendship = new BowserBook.Models.FriendRequest({
+      friended_id: this.model.id
+    });
+    newFriendship.save({}, {
+      success: function () {
+        this.model.set('request_sent', true);
+        this.render();
+      }.bind(this)
+    });
   }
 });

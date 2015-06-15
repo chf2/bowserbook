@@ -59,7 +59,7 @@
 
 .profile-friend-table td.username {
   font-size: 16px;
-  vertical-align: center;
+  vertical-align: middle;
 }
 
 .sidebar-friend-index-item-img {
@@ -76,13 +76,71 @@
   padding-left: 0;
   li {
     float: left;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     text-align: center;
     padding: 5px;
     a {
       display: block;
       text-decoration: none;
     }
+  }
+}
+
+.friend-requests-index {
+  margin-top: 10px;
+}
+
+.friend-requests-list {
+  padding-left: 0;
+  list-style: none;
+  li {
+    padding-left: 5px;
+    width: 95%;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #E7E7E7;
+    box-shadow: 2px 2px 2px #CCC;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.friend-request-btn {
+  height: 100%;
+  float: right;
+  font-size: 10px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border: 1px solid #E7E7E7;
+  border-radius: 2px;
+  vertical-align: text-middle;
+}
+
+.landing-friend-status {
+  padding: 7px 25px;
+  font-size: 14px;
+  border: 1px solid #AAA;
+  box-shadow: 1px 1px #AAA;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+  position: absolute;
+  bottom: 10px;
+  right: 70px;
+}
+
+.send-friend-request {
+  font-size: 14px;
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+}
+
+.update-profile {
+  display: block;
+  &:hover {
+    text-decoration: none;
   }
 }
