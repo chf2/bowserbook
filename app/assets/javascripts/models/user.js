@@ -36,6 +36,15 @@ BowserBook.Models.User = Backbone.Model.extend({
     return this._friendRequestsIn;
   },
 
+  messages: function () {
+    if (!this._messages) {
+      this._messages = new BowserBook.Collections.Messages([], { user: this });
+    }
+    this._messages.fetch();
+
+    return this._messages;
+  },
+
   wallPosts: function () {
     if (!this._wallPosts) {
       this._wallPosts = new BowserBook.Collections.Posts([], { user: this });

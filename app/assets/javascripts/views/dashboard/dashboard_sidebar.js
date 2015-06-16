@@ -1,5 +1,5 @@
-BowserBook.Views.FeedSidebar = Backbone.CompositeView.extend({
-  template: JST['feed/sidebar'],
+BowserBook.Views.DashboardSidebar = Backbone.CompositeView.extend({
+  template: JST['dashboard/sidebar'],
 
   initialize: function () {
     var friendRequestsIndexView = new BowserBook.Views.FriendRequestsIndex({
@@ -7,13 +7,14 @@ BowserBook.Views.FeedSidebar = Backbone.CompositeView.extend({
       collection: this.model.friendRequestsIn()
     });
     this.addSubview(
-      '.feed-sidebar-friend-requests-container',
+      '.dashboard-sidebar-friend-requests-container',
       friendRequestsIndexView
     );
     this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {
+    console.log("RENDERED SIDEBAR")
     var content = this.template({ user: this.model });
     this.$el.html(content);
     this.attachSubviews();

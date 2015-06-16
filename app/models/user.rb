@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :wall_posts, class_name: "Post", foreign_key: :about_id
   has_many :comments, foreign_key: :author_id, dependent: :destroy
   has_many :sent_messages, foreign_key: :sender_id, class_name: "Message"
-  has_many :received_messages, foriegn_key: :recipient_id, class_name: "Message"
+  has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
 
   after_initialize :ensure_session_token, :ensure_image_url
 

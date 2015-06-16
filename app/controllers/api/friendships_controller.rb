@@ -7,7 +7,7 @@ class Api::FriendshipsController < ApplicationController
     if @friendship.save
       render json: @friendship
     else
-      render json: @friendship.errors.full_messages
+      render json: @friendship.errors.full_messages, status: 422
     end
   end
 
@@ -16,7 +16,7 @@ class Api::FriendshipsController < ApplicationController
     if @friendship.update(friendship_update_params)
       render :show # TODO: -- show is only used in specific case, not general
     else
-      render json: @friendship.errors.full_messages
+      render json: @friendship.errors.full_messages, status: 422
     end
   end
 

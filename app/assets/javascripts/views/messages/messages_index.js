@@ -11,11 +11,14 @@ BowserBook.Views.MessagesIndex = Backbone.CompositeView.extend({
     var messageView = new BowserBook.Views.MessageIndexItem({
       model: message
     });
+    var sidebarView = new BoswerBook.Views.FeedSidebar({
+      model: this.model
+    });
     this.addSubview('.messages-list', messageView);
   },
 
   render: function () {
-    var content = template({ messages: this.collection });
+    var content = this.template({ messages: this.collection });
     this.$el.html(content);
     this.attachSubviews();
     return this;
