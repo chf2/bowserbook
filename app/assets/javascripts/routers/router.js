@@ -8,6 +8,7 @@ BowserBook.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'feed',
     'home': 'feed',
+    'messages': 'messages',
     'profiles/:id': 'show',
     'profiles/:id/edit': 'edit'
   },
@@ -28,6 +29,13 @@ BowserBook.Routers.Router = Backbone.Router.extend({
       model: user
     });
     this._swapView(view);
+  },
+
+  messages: function () {
+    var user = this.collection.getOrFetch(window.CURRENT_USER_ID);
+    var view = new BowserBook.Views.MessagesIndex({
+      model: user
+    });
   },
 
   show: function (id) {

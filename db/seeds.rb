@@ -29,7 +29,7 @@ User.create!(
   summary: "I am Bowser, and I am the best. This website was named after me for a reason!",
   status: "Plotting my next move...",
   profile_public_id: "image/upload/v1434219865/bowserbook_images/a9tim5clwljp89lt92cm.png#034a03a1d9b9b35b75ee79f2652a93aaf4144b2f",
-  background_public_id: "image/upload/v1434219873/bowserbook_images/c8jc0mtmkdtdz68114gt.png#c10123ba0524c5d93a64caab406d8d935e6d1cea"
+  background_public_id: "image/upload/v1434219873/bowserbook_images/evtmilo2dk039dvekt0c.png"
 )
 
 User.create!(
