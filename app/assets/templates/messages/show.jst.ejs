@@ -1,1 +1,13 @@
-SAMPLE SHOW PAGE
+<div class="message-show-header">
+  <img src="<%= message.escape('sender_image_url') %>" class="message-show-img">
+  <span class="message-username-header">
+    <%= message.escape('sender_username') %>
+  </span>
+</div>
+<div class="message-show-body">
+  <%= message.escape('body') %>
+</div>
+<div class="message-show-buttons clearfix">
+  <button class="btn btn-success message-reply-btn">Reply</button>
+  <button class="btn btn-primary message-index-btn">Back to Inbox</button>
+</div>

@@ -45,7 +45,8 @@ class Api::MessagesController < ApplicationController
   end
 
   def validate_recipient
-    unless current_user.id = params[:message][:recipient_id]
+    message = Message.find(params[:id])
+    unless current_user.id = message.recipient_id
       render json: {}, status: 422 
     end
   end

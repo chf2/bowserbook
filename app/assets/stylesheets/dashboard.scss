@@ -82,3 +82,35 @@ span.message-time-sent {
     cursor: pointer;
   }
 }
+
+.message-show-img {
+  height: 80px;
+  width: 80px;
+  display: inline-block;
+}
+
+.message-show-header {
+  height: 100px;
+  padding: 20px 0;
+  font-size: 36px;
+  span { 
+    padding: 0 20px 0 20px;
+  }
+}
+
+.message-show-body {
+  margin-top: 10px;
+  min-height: 200px;
+  padding: 15px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+}
+
+.message-show-buttons {
+  margin-top: 10px;
+}
+
+.message-show-buttons button {
+  margin-left: 10px;
+  float: right;
+}
