@@ -4,7 +4,9 @@ BowserBook.Views.DashboardShow = Backbone.CompositeView.extend({
   className: 'dashboard-container',
 
   initialize: function (options) {
-    var sidebarView = new BowserBook.Views.DashboardSidebar({ model: this.model });
+    var sidebarView = new BowserBook.Views.DashboardSidebar({ 
+      model: this.model 
+    });
     var contentView = options.contentSubview;
     this.addSubview('.dashboard-sidebar-container', sidebarView);
     this.addSubview('.dashboard-content-container', contentView);

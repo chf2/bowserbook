@@ -45,7 +45,7 @@ BowserBook.Routers.Router = Backbone.Router.extend({
 
   messages: function () {
     var user = this.collection.getOrFetch(window.CURRENT_USER_ID);
-    var messagesView = new BowserBook.Views.MessagesIndex({
+    var messagesView = new BowserBook.Views.MessagesContainer({
       model: user,
       collection: user.messages()
     });
