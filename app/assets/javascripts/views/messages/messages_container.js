@@ -49,8 +49,10 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
   },
 
   showNew: function (event) {
+    var selectedId = $(event.currentTarget).data('id') || -1;
     var newView = new BowserBook.Views.MessageNew({
-      collection: this.model.friends()
+      collection: this.model.friends(),
+      selectedId: selectedId
     });
     this._swapSubview(newView);
   },

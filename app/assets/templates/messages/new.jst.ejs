@@ -6,7 +6,8 @@
             id="message-recipient-id"
             class="form-control">
       <% users.forEach(function (user) { %>
-        <option value="<%= user.id %>">
+        <% var selectedStr = (user.id === selectedId) ? "selected" : "" %>
+        <option value="<%= user.id %>" <%= selectedStr %>>
           <%= user.escape('username') %>
         </option>
       <% }) %>

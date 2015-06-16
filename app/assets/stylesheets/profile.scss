@@ -136,6 +136,19 @@
   right: 70px;
 }
 
+.landing-friend-status-update {
+  height: 36px;
+  width: 125px;
+  font-size: 14px;
+  border: 1px solid #AAA;
+  box-shadow: 1px 1px #AAA;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+  position: absolute;
+  bottom: 10px;
+  right: 70px;
+}
+
 .send-friend-request {
   font-size: 14px;
   position: absolute;
@@ -153,6 +166,10 @@
 
 .update-profile {
   display: block;
+  height: 36px;
+  width: 125px;
+  text-align: center;
+  line-height: 36px;
   &:hover {
     text-decoration: none;
   }

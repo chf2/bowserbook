@@ -1,6 +1,8 @@
-<img class="dashboard-profile-image" src="<%= user.escape('image_url') %>">
-<a class="update-profile" href="/#/profiles/<%= user.id %>/edit">
+<div class="dashboard-sidebar-header">  
+  <img class="dashboard-profile-image" src="<%= user.escape('image_url') %>">
+  <a class="dashboard-update-profile" href="/#/profiles/<%= user.id %>/edit">
   Edit Profile
-</a>
+  </a>
+</div>
 <div class="dashboard-sidebar-friend-requests-container"></div>
 <div class="dashboard-sidebar-pokes-container"></div>

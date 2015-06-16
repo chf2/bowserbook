@@ -3,7 +3,7 @@
 <% if (user.escape('is_a_friend') === 'true') { %> 
   <div class="landing-friend-status">✓ Friends</div>
 <% } else if (user.id == window.CURRENT_USER_ID) { %>
-  <div class="landing-friend-status">
+  <div class="landing-friend-status-update">
     <a class="update-profile" href="/#/profiles/<%= user.id %>/edit">
       Update Info
     </a>
