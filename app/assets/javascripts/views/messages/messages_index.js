@@ -11,14 +11,14 @@ BowserBook.Views.MessagesIndex = Backbone.CompositeView.extend({
     var messageView = new BowserBook.Views.MessageIndexItem({
       model: message
     });
-    var sidebarView = new BoswerBook.Views.FeedSidebar({
-      model: this.model
-    });
-    this.addSubview('.messages-list', messageView);
+    this.addSubview('.messages-list', messageView, true);
   },
 
   render: function () {
-    var content = this.template({ messages: this.collection });
+    var unreadMessages = this.collection.filter(function (message) {
+      return message.escape('read') === 'false';
+    }).length;
+    var content = this.template({ unreadMessages: unreadMessages });
     this.$el.html(content);
     this.attachSubviews();
     return this;

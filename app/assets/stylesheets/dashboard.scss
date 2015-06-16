@@ -1,0 +1,84 @@
+.dashboard-profile-image {
+  display: block;
+  margin: 0 auto 10px;
+  height: 150px;
+  width: 150px;
+  border: 1px solid #E7E7E7;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.dashboard-sidebar-container {
+  margin-top: 20px;
+  border-right: 1px solid #E7E7E7;
+  a, h4, h5 {
+    text-align: center;
+  }
+}
+
+.dashboard-content-container h3 {
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.dashboard-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* MESSAGES */
+
+.messages-list {
+  margin-top: 10px;
+  list-style: none;
+  padding-left: 10px;
+  li {
+    padding: 5px 5px 5px 20px;
+    border: 1px solid #CCC;
+    box-shadow: 1px 1px #CCC;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    width: 500px;
+    height: 40px;
+    span {
+      padding-left: 10px;
+    }
+  }
+}
+
+span.message-username {
+  font-size: 14px;
+  width: 70px;
+  display: inline-block;
+}
+
+span.message-preview-read {
+  color: #AAA;
+}
+
+span.message-preview-unread {
+  font-weight: bold;
+}
+
+.message-show {
+  display: block;
+}
+
+span.message-time-sent {
+  line-height: 30px;
+  font-size: 12px;
+  float: right;
+  padding-right: 5px;
+}
+
+.message-img {
+  height: 30px;
+  width: 30px;
+}
+
+.message-index-item {
+  &:hover {
+    cursor: pointer;
+  }
+}

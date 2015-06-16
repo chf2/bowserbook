@@ -1,2 +1,6 @@
-<h1>Messages</h1>
+<% if (unreadMessages > 0) { %> 
+  <h3>My Messages (<%= unreadMessages %> unread)</h3>
+<% } else { %>
+  <h3>My Messages</h3>
+<% } %>
 <ul class="messages-list"></ul>

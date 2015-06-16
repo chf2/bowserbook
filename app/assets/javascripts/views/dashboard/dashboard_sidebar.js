@@ -14,7 +14,6 @@ BowserBook.Views.DashboardSidebar = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    console.log("RENDERED SIDEBAR")
     var content = this.template({ user: this.model });
     this.$el.html(content);
     this.attachSubviews();

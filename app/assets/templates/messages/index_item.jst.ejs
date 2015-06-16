@@ -1,0 +1,17 @@
+<img src="<%= message.escape('sender_image_url') %>" class="message-img">
+
+<span class="message-username">
+  <%= message.escape('sender_username') %>
+</span>
+
+<% if (message.escape('read') === 'true') { %>
+  <span class="message-preview-read">
+<% } else { %>
+  <span class="message-preview-unread">
+<% } %> 
+  <%= message.escape('preview') %>
+</span>
+
+<span class="message-time-sent">
+  Received <%= message.escape('time_sent') %> ago
+</span>
