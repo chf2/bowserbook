@@ -44,3 +44,22 @@ User.create!(
   profile_public_id: "image/upload/v1434219979/bowserbook_images/milsrrrjhapyxahuyqyl.png#41da5d2137be29beae3599f2aa0b8589722b9afa",
   background_public_id: "image/upload/v1434219942/bowserbook_images/uk9gc8uv4qj2gefkqtmd.png#088d1fca1c6907c947116649f0807aa001af7e52"
 )
+
+User.create!(
+  username: "Yoshi",
+  password: "password",
+  location: "Yoshi's Island",
+  rival: "Koopa",
+  interests: "Laying eggs, eating things",
+  birthday: Time.now - 2.years,
+  summary: "Excellent racer. Mario's favorite companion. Koopas and Goombas, look out!",
+  status: "Pop!",
+  profile_public_id: "image/upload/v1434219979/bowserbook_images/yoshi_profile.png",
+  background_public_id: "image/upload/v1434219942/bowserbook_images/yoshi_bg.png"
+)
+
+Friendship.create!(friender_id: 1, friended_id: 2, responded: true, accepted: true)
+Friendship.create!(friender_id: 1, friended_id: 3, responded: true, accepted: true)
+Friendship.create!(friender_id: 1, friended_id: 4, responded: true, accepted: true)
+Friendship.create!(friender_id: 3, friended_id: 4, responded: true, accepted: true)
+

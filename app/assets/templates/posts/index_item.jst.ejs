@@ -3,7 +3,15 @@
     <img src="<%= post.escape('author_image_url') %>" class="post-header-img">
     <a href="/#/profiles/<%= post.escape('author_id') %>">
       <%= post.escape('author_name') %>
-    </a> <%= post.escape('created_at') %> ago
+    </a> 
+    <% if (post.escape('about_id') !== post.escape('author_id')) { %>
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <a href="/#/profiles/<%= post.escape('about_id') %>">
+        <%= post.escape('about_name') %>
+      </a> 
+    <% } %>
+    <%= post.escape('created_at') %> ago
+    
     <div class="post-header-buttons">
       <% if (window.CURRENT_USER_ID == post.escape('author_id')) { %>
         <a class='edit post-glyph'>
