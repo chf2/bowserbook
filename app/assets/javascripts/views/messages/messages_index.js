@@ -1,6 +1,8 @@
 BowserBook.Views.MessagesIndex = Backbone.CompositeView.extend({
   template: JST['messages/index'],
 
+  className: 'messages-index',
+
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addMessage);
@@ -18,7 +20,10 @@ BowserBook.Views.MessagesIndex = Backbone.CompositeView.extend({
     var unreadMessages = this.collection.filter(function (message) {
       return message.escape('read') === 'false';
     }).length;
-    var content = this.template({ unreadMessages: unreadMessages });
+    var content = this.template({ 
+      unreadMessages: unreadMessages,
+      totalMessages: this.collection.length 
+    });
     this.$el.html(content);
     this.attachSubviews();
     return this;

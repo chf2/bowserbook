@@ -47,6 +47,29 @@
   }
 }
 
+.messages-index {
+  h3 {
+    text-align: center;
+  }
+  h5 {
+    color: #CCC;
+    text-align: center;
+  }
+}
+
+.messages-index-header {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+}
+
+.message-new-btn {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+}
+
 span.message-username {
   font-size: 14px;
   width: 75px;

@@ -1,7 +1,12 @@
-<% if (unreadMessages > 0) { %> 
-  <h3>My Messages (<%= unreadMessages %> unread)</h3>
-<% } else { %>
-  <h3>My Messages</h3>
+<div class="messages-index-header">
+  <% if (unreadMessages > 0) { %> 
+    <h3>My Messages (<%= unreadMessages %> unread)</h3>
+  <% } else { %>
+    <h3>My Messages</h3>
+  <% } %>
+  <button class="btn btn-primary message-new-btn">New Message</button>
+</div>
+<% if (totalMessages === 0) { %>
+  <h5>You don't have any messages. Try sending one!</h5>
 <% } %>
 <ul class="messages-list"></ul>
-<div class="message-show-container"></div>

@@ -6,7 +6,9 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
   events: {
     'click .message-index-item': 'showMessage',
     'click .message-index-btn': 'showIndex',
-    'click .message-reply-btn': 'showNew'
+    'click .message-reply-btn': 'showNew',
+    'click .message-new-btn': 'showNew',
+    'submit form.create-message-form': 'sendMessage'
   },
 
   initialize: function () {
@@ -24,6 +26,14 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
     return this;
   },
 
+  sendMessage: function (event) {
+    event.preventDefault();
+    params = $(event.currentTarget).serializeJSON();
+    var message = new BowserBook.Models.Message(params);
+    message.save();
+    this.showIndex();
+  },
+
   showIndex: function (event) {
     var indexView = new BowserBook.Views.MessagesIndex({
       model: this.model,
@@ -39,6 +49,10 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
   },
 
   showNew: function (event) {
+    var newView = new BowserBook.Views.MessageNew({
+      collection: this.model.friends()
+    });
+    this._swapSubview(newView);
   },
 
   _swapSubview: function (view) {
