@@ -19,8 +19,3 @@ window.BowserBook = {
     $('#navbar').html(navbar.render().$el);
   }
 }
-
-$(document).ready(function () {
-  BowserBook.initialize();
-});
-  

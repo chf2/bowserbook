@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
      .uniq
      .reject { |id| id == self.id }
 
-    User.where(id: user_ids).all
+    User.where(id: user_ids)
   end
 
   def image_url

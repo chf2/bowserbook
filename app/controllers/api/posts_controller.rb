@@ -12,7 +12,11 @@ class Api::PostsController < ApplicationController
   end
 
   def index
-    @posts = current_user.wall_posts.includes(:author)
+    if params[:feed]
+      @posts = get_feed.all
+    else
+      @posts = current_user.wall_posts.includes(:author)
+    end
   end
 
   def update
@@ -32,6 +36,12 @@ class Api::PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     render json: post
+  end
+
+  def get_feed
+    friend_ids = current_user.friends.pluck(:id)
+    friend_ids << current_user.id
+    Post.where(author_id: friend_ids)
   end
 
   private

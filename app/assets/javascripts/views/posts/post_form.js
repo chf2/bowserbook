@@ -4,7 +4,7 @@ BowserBook.Views.PostForm = Backbone.View.extend({
   className: 'new-post-form',
 
   events: {
-    'submit form': 'createPost',
+    'submit form.sidebar-container': 'createPost',
     'click .close': 'closeForm'
   },
 

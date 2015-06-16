@@ -38,7 +38,7 @@ if current_user.id == user.id
   end
 end
 
-json.friends user.friends do |friend|
+json.friends user.friends.all do |friend|
   json.id friend.id
   json.username friend.username
   json.image_url friend.image_url

@@ -5,7 +5,6 @@ BowserBook.Views.Wall = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
-
     var newPostView = new BowserBook.Views.PostForm({
       about_id: this.model.id,
       collection: this.collection

@@ -1,10 +1,14 @@
 <div class="container content-container">
   <div id="navbar"></div>
-  <div id="main">
-    <h1>I'm at root</h1>
-    <%= link_to "My Profile", "#/profiles/#{current_user.id}" %>
-  </div>
+  <div id="main"></div>
   <div id="footer">
     <hr />
   </div>
+  <script>
+    $(document).ready(function () {
+      BowserBook.initialize();
+    });
+  </script>
+  
+
 </div>
