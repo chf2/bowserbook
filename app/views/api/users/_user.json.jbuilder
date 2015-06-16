@@ -1,5 +1,3 @@
-require 'byebug'
-
 json.extract! user,
   :id,
   :background_image_url,
