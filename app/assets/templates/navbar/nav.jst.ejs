@@ -1,45 +1,56 @@
 <div class="bb-navbar-container">
   <nav class="bb-navbar">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#/">BowserBook</a>
-      </div>
-      <!-- Users Search TKTKTKTK -->
-      <div class="navbar-form">
-        <div class="users-search input-group">
-          <input type="text" 
-                 class="form-control" 
-                 placeholder="Search BowserBook"
-                 name="username"
-                 id="users-search">
+      <div class="bb-navbar-left">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#/">BowserBook</a>
         </div>
-        <ul class="search-results-container"></ul>
+        <!-- Users Search TKTKTKTK -->
+        <div class="navbar-form">
+          <div class="users-search input-group">
+            <input type="text" 
+                   class="form-control" 
+                   placeholder="Search BowserBook"
+                   name="username"
+                   id="users-search">
+          </div>
+          <ul class="search-results-container"></ul>
+        </div>
       </div>
-
       <!-- Main Links -->
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#/profiles/<%= window.CURRENT_USER_ID %>">
-            <%= window.CURRENT_USER_NAME %>
-          </a>
-        </li>
-        <li><a href="#/home">Home</a></li>
-        <li><a href="#/messages">Messages</a></li>
-        <li><a href="#">Notifications</a></li>
-      <!-- Sign Out -->
-        <li>
-          <form action="session" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <input type="hidden" 
-                   name="authenticity_token" 
-                   id="sign_out_auth_token"
-                   value="">
-            <input type="submit" 
-                   class="btn btn-default navbar-btn sign-out"
-                   value="Sign Out">
-          </form>
-        </li>
-      </ul>
+      <div class="bb-navbar-right">
+        <ul class="bowserbook-nav">
+          <li class="nav-item">
+            <a href="#/profiles/<%= window.CURRENT_USER_ID %>">
+              <%= window.CURRENT_USER_NAME %>
+            </a>
+          </li>
+          <li class="nav-item"><a href="#/home">Home</a></li>
+          <li class="nav-item"><a href="#/messages">Messages</a></li>
+          <li class="notifications-button nav-item">
+            <a href="javascript:void(0)">Notifications</a>
+            <ul class="notifications-list">
+              <li class="notifications-base">Notifications</li>
+              <li class="notification-item">
+                Example Notification item. This could be a longer string of text.
+              </li>
+            </ul>
+          </li>
+        <!-- Sign Out -->
+          <li class="nav-item sign-out-item">
+            <form action="session" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" 
+                     name="authenticity_token" 
+                     id="sign_out_auth_token"
+                     value="">
+              <input type="submit" 
+                     class="sign-out"
+                     value="Sign Out">
+            </form>
+          </li>
+        </ul>
+      </div>
     </div><!-- /.container-fluid -->
   </nav>
 </div>

@@ -1,0 +1,137 @@
+/* NAVBAR */
+
+.navbar-form {
+  position: relative;
+  display: inline-block;
+}
+
+.search-results-container {
+  position: absolute;
+  list-style: none;
+  padding-left: 0;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.search-result {
+  position: relative;
+  width: 170px;
+  height: 40px;
+  z-index: 1;
+  background-color: white;
+  border-bottom: 1px solid #CCC;
+  &:hover {
+    cursor: pointer;
+    background-color: #EFEFEF;
+  }
+}
+.search-result-link {
+  display: block;
+  line-height: 40px;
+  padding-left: 10px;
+  &:hover {  
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  margin: 0 auto;
+  padding-right: 20px;
+}
+
+#users-search {
+  width: 325px;
+}
+
+.bb-navbar-left {
+  float: left;
+}
+
+.bb-navbar-right {
+  float: right;
+}
+
+.bowserbook-nav {
+  list-style: none;
+  float: left;
+  padding-left: 0;
+  li.nav-item {
+    float: left;
+    height: 50px;
+    &:hover {
+      background-color: #CCC;
+    }
+    a {
+      display: block;
+      height: 50px;
+      padding: 15px 10px 15px 10px;
+      vertical-align: middle;
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      &:focus {
+        text-decoration: none;
+        color: #337ab7;
+      }
+    }
+  }
+}
+
+.notifications-button {
+  position: relative;
+}
+
+.notifications-list {
+  display: none;
+  list-style: none;
+  padding-left: 0;
+  position: absolute;
+  right: 0;
+  width: 250px;
+  border-left: 1px solid #CCC;
+  border-top: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  li {
+    background-color: white;
+    z-index: 1;
+    border-bottom: 1px solid #CCC;
+    position: relative;
+    padding-left: 15px;
+  }
+
+  li:not(.notifications-base) {
+    position: relative;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 20px
+    height: 50px;
+    &:hover {
+      background-color: #EFEFEF;
+    }
+  }
+
+  li.notifications-base {
+    line-height: 25px;
+    height: 25px;
+    font-size: 10px;
+    font-weight: bold;
+  }
+}
+
+.sign-out {
+  height: 50px;
+  background-color: #E7E7E7;
+  border: none;
+  color: #337ab7;
+  padding: 15px 10px 15px 10px;
+  &:hover {
+    border: none;
+    background-color: #CCC;
+  }
+}

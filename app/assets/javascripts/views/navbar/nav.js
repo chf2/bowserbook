@@ -7,10 +7,12 @@ BowserBook.Views.Nav = Backbone.View.extend({
     'input #users-search': 'searchUsers',
     'click .search-result': 'clearInput',
     'click .bb-navbar-container': 'clearInput',
+    'click .notifications-button': 'handleNotificationsClick'
   },
 
   initialize: function () {
     this.collection = new BowserBook.Collections.Users();
+    this._notificationsShowing = false;
   },
 
   render: function () {
@@ -64,5 +66,25 @@ BowserBook.Views.Nav = Backbone.View.extend({
         this.appendSearchResults.call(this, results);
       }.bind(this)
     });
+  },
+
+  handleNotificationsClick: function (event) {
+    if (this._notificationsShowing) {
+      this.hideNotifications()
+    } else {
+      this.showNotifications()
+    }
+  },
+
+  showNotifications: function (event) {
+    this._notificationsShowing = true;
+    var list = this.$('.notifications-list');
+    list.show('slide');
+  },
+
+  hideNotifications: function (event) {
+    this._notificationsShowing = false;
+    var list = this.$('.notifications-list');
+    list.hide('slide');
   }
 })
