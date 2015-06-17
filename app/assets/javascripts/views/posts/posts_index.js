@@ -1,18 +1,14 @@
 BowserBook.Views.PostsIndex = Backbone.CompositeView.extend({
   template: JST['posts/index'],
 
-  initialize: function (options) {
-    this.user = options.user;
+  initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addPost.bind(this));
     this.collection.each(this.addPost.bind(this));
   },
 
   addPost: function (post) {
-    var postView = new BowserBook.Views.PostIndexItem({ 
-      model: post,
-      user: this.user
-    });
+    var postView = new BowserBook.Views.PostIndexItem({ model: post });
     this.addSubview('.wall-posts', postView, true);
   },
 

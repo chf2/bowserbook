@@ -1,7 +1,7 @@
 BowserBook.Views.UserForm = Backbone.View.extend({
   template: JST['users/form'],
 
-  className: 'col-xs-8 col-xs-offset-2',
+  className: 'user-edit-form',
 
   events: {
     'submit form': 'submit'

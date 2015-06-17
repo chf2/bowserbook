@@ -9,13 +9,14 @@ BowserBook.Views.CommentForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.post = options.post;
-    this.user = options.user;
     this.model = new BowserBook.Models.Comment();
-    this.listenTo(this.user, 'sync', this.render);
   },
 
   render: function () {
-    var content = this.template({ post: this.post, user: this.user });
+    var content = this.template({ 
+      post: this.post, 
+      current_user_thumbnail_url: window.CURRENT_USER_THUMBNAIL_URL
+    });
     this.$el.html(content);
     return this;
   },

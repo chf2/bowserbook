@@ -3,15 +3,14 @@ BowserBook.Views.Wall = Backbone.CompositeView.extend({
 
   className: 'wall',
 
-  initialize: function (options) {
+  initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
     var newPostView = new BowserBook.Views.PostForm({
       about_id: this.model.id,
       collection: this.collection
     });
     var wallPostsView = new BowserBook.Views.PostsIndex({
-      collection: this.collection,
-      user: options.user
+      collection: this.collection
     });
     this.addSubview('.new-post-container', newPostView);
     this.addSubview('.wall-posts-container', wallPostsView);

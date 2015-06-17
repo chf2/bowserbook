@@ -1,9 +1,10 @@
-<h1>Update Your Profile</h1>
+<h3>Update Your Profile</h3>
 <form>
   <div class="form-group">
     <label for="user-summary">Summary:</label><br>
     <textarea
-           name="user[summary]" 
+           name="user[summary]"
+           rows="3"
            id="user-summary"
            class="form-control"
            placeholder="Tell us a little about yourself..."><%= user.escape('summary') %></textarea>

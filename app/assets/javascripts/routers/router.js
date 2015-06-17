@@ -28,11 +28,11 @@ BowserBook.Routers.Router = Backbone.Router.extend({
 
   edit: function (id) {
     var user = this.collection.getOrFetch(id);
-    var view = new BowserBook.Views.UserForm({
+    var editView = new BowserBook.Views.UserForm({
       model: user,
       collection: this.collection
     });
-    this._swapView(view);
+    this.dashboard(editView);
   },
 
   feed: function () {

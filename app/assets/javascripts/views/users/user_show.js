@@ -10,14 +10,13 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
     'click li.friends-swap': 'swapToFriends'
   },
 
-  initialize: function (options) {
+  initialize: function () {
     var landingView = new BowserBook.Views.ProfileLanding({ model: this.model });
     var profileNavView = new BowserBook.Views.ProfileNav({ model: this.model });
     var sidebarView = new BowserBook.Views.ProfileSidebar({ model: this.model });
     var wallView = new BowserBook.Views.Wall({
       model: this.model,
-      collection: this.model.wallPosts(),
-      user: options.currentUser
+      collection: this.model.wallPosts()
     });
     
     this.addSubview('.landing-container', landingView);

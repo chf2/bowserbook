@@ -1,7 +1,7 @@
 <h5>Comment on <%= post.escape('author_name') %>'s post!</h5>
 <form>
   <div class="form-group">
-    <img src="<%= user.escape('image_url') %>" 
+    <img src="<%= current_user_thumbnail_url %>" 
            class="comment-img">
     <input type="hidden" 
            name="comment[post_id]" 
