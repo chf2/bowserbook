@@ -20,7 +20,7 @@ BowserBook.Models.User = Backbone.Model.extend({
 
   friends: function () {
     if (!this._friends) {
-      this._friends = new BowserBook.Collections.Friends([], { user: this });
+      this._friends = new BowserBook.Collections.Friends();
     }
 
     return this._friends;
@@ -28,9 +28,7 @@ BowserBook.Models.User = Backbone.Model.extend({
 
   friendRequestsIn: function () {
     if (!this._friendRequestsIn) {
-      this._friendRequestsIn = new BowserBook.Collections.FriendRequests(
-        [], { user: this }
-      );
+      this._friendRequestsIn = new BowserBook.Collections.FriendRequests();
     }
 
     return this._friendRequestsIn;
@@ -38,7 +36,7 @@ BowserBook.Models.User = Backbone.Model.extend({
 
   messages: function () {
     if (!this._messages) {
-      this._messages = new BowserBook.Collections.Messages([], { user: this });
+      this._messages = new BowserBook.Collections.Messages();
     }
     this._messages.fetch();
 
@@ -47,7 +45,7 @@ BowserBook.Models.User = Backbone.Model.extend({
 
   wallPosts: function () {
     if (!this._wallPosts) {
-      this._wallPosts = new BowserBook.Collections.Posts([], { user: this });
+      this._wallPosts = new BowserBook.Collections.Posts();
     }
     
     return this._wallPosts;

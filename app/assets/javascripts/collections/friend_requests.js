@@ -3,10 +3,6 @@ BowserBook.Collections.FriendRequests = Backbone.Collection.extend({
 
   model: BowserBook.Models.FriendRequest,
 
-  initialize: function (models, options) {
-    this.user = options.user;
-  },
-
   getOrFetch: function(id) {
     var collection = this;
 

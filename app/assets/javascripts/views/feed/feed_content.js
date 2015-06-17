@@ -2,9 +2,7 @@ BowserBook.Views.FeedContent = Backbone.CompositeView.extend({
   template: JST['feed/content'],
 
   initialize: function () {
-    this.collection = new BowserBook.Collections.Posts([], {
-      user: this.model
-    });
+    this.collection = new BowserBook.Collections.Posts();
     this.collection.fetch({
       data: { feed: true }
     });

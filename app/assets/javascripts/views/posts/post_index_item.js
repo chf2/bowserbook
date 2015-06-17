@@ -8,14 +8,18 @@ BowserBook.Views.PostIndexItem = Backbone.CompositeView.extend({
     'click .edit': 'editPost'
   },
 
-  initialize: function () {
+  initialize: function (options) {
     this.collection = this.model.comments();
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'add remove', this.render); // TODO: NECESSARY?
+    this.user = options.user;
 
-    var commentFormView = new BowserBook.Views.CommentForm({ post: this.model });
-    var commentIndexView = new BowserBook.Views.CommentsIndex(
-      { collection: this.collection 
+    var commentFormView = new BowserBook.Views.CommentForm({ 
+      post: this.model,
+      user: this.user
+    });
+    var commentIndexView = new BowserBook.Views.CommentsIndex({ 
+      collection: this.collection 
     });
     this.addSubview('.comment-form-container', commentFormView);
     this.addSubview('.comment-index-container', commentIndexView);

@@ -3,10 +3,6 @@ BowserBook.Collections.Messages = Backbone.Collection.extend({
 
   model: BowserBook.Models.Message,
 
-  initialize: function (options) {
-    this.user = options.user
-  },
-
   getOrFetch: function(id) {
     var collection = this;
 
