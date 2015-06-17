@@ -6,6 +6,7 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
   events: {
     'click .message-index-item': 'showMessage',
     'click .message-index-btn': 'showIndex',
+    'click .message-index-btn-new': 'showIndex',
     'click .message-reply-btn': 'showNew',
     'click .message-new-btn': 'showNew',
     'submit form.create-message-form': 'sendMessage'
@@ -49,7 +50,7 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
         });
         notificationOut.save({}, {
           success: function () {
-            BowserBook.Notifications.add(notificationOut);
+            BowserBook.NotificationsOut.add(notificationOut);
           }
         });
         notificationIn.save();

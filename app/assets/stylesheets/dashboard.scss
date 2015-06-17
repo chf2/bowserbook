@@ -68,7 +68,15 @@
   width: 100%;
 }
 
+.message-new { position: relative; }
+
 .message-new-btn {
+  position: absolute;
+  right: -15px;
+  top: -3px;
+}
+
+.message-index-btn-new {
   position: absolute;
   right: -15px;
   top: -3px;

@@ -5,6 +5,8 @@ BowserBook.Views.MessageNew = Backbone.View.extend({
     this.selectedId = options.selectedId;
   },
 
+  className: 'message-new',
+
   render: function () {
     var content = this.template({ 
       users: this.collection,

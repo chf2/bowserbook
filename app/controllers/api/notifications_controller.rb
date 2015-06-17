@@ -16,7 +16,7 @@ class Api::NotificationsController < ApplicationController
   end
 
   def index
-    @notifications = current_user.new_notifications
+    @notifications = current_user.new_notifications.all
   end
 
   def update

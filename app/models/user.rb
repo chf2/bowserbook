@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
   end
 
   def new_notifications
-    notifications.where('incoming = TRUE AND read = FALSE')
+    x = notifications.where('incoming = TRUE AND read = FALSE')
   end
 
   def password=(password)

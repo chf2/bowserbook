@@ -12,9 +12,11 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   initialize: function () {
     this.collection = new BowserBook.Collections.Users();
-    this.notifications = BowserBook.Notifications;
+    this.notificationsOut = BowserBook.NotificationsOut;
+    this.notificationsIn = BowserBook.NotificationsIn;
     this._notificationsShowing = false;
-    this.listenTo(this.notifications, 'add', this.displayOutNotifications);
+    this.listenTo(this.notificationsOut, 'add', this.displayNotificationsOut);
+    this.listenTo(this.notificationsIn, 'sync', this.updateNotificationsIn);
   },
 
   render: function () {
@@ -72,18 +74,16 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   // NOTIFICATIONS LOGIC
 
-  displayOutNotifications: function (notification) {
-    var list = this.$('.notifications-list');
+  displayNotificationsOut: function (notification) {
+    var list = this.$('.notifications-out-list');
     var item = $("<li class='notification-item'>");
     item.html(notification.escape('body'));
     list.append(item);
 
-    if (!this._notificationsShowing) {
-      list.slideDown(600);
-    }
+    list.slideDown(600);
     setTimeout(function () {
       list.slideUp(600, function () {
-        BowserBook.Notifications.remove(notification);
+        BowserBook.NotificationsOut.remove(notification);
         item.remove();
       });
     }, 3000);
@@ -100,11 +100,28 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   showNotifications: function (event) {
     this._notificationsShowing = true;
-    this.$('.notifications-list').slideDown();
+    this.$('.notifications-in-list').slideDown();
   },
 
   hideNotifications: function (event) {
     this._notificationsShowing = false;
-    this.$('.notifications-list').slideUp();
+    this.$('.notifications-in-list').slideUp();
+  },
+
+  updateNotificationsIn: function () {
+    var list = this.$('.notifications-in-list');
+    var badge = this.$('.notifications-badge')
+    var numNotifications = this.notificationsIn.length;
+    this.notificationsIn.each(function (notification) {
+      var item = $("<li class='notification-item'>");
+      item.html(notification.escape('body'));
+      list.append(item);
+    });
+    badge.html(numNotifications);
+    if (numNotifications > 0) {
+      badge.css('background-color', 'red')
+    } else {
+      badge.css('background-color', '#AAA')
+    }
   }
 })
