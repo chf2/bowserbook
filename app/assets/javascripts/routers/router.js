@@ -54,8 +54,10 @@ BowserBook.Routers.Router = Backbone.Router.extend({
 
   show: function (id) {
     var user = this.collection.getOrFetch(id);
+    var currentUser = this.collection.getOrFetch(window.CURRENT_USER_ID);
     var view = new BowserBook.Views.UserShow({
-      model: user
+      model: user,
+      currentUser: currentUser
     });
     this._swapView(view);
   },

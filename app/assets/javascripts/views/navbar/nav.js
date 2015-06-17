@@ -6,7 +6,7 @@ BowserBook.Views.Nav = Backbone.View.extend({
   events: {
     'input #users-search': 'searchUsers',
     'click .search-result': 'clearInput',
-    'click .navbar': 'clearInput',
+    'click .bb-navbar-container': 'clearInput',
   },
 
   initialize: function () {
