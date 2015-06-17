@@ -37,9 +37,7 @@ BowserBook.Routers.Router = Backbone.Router.extend({
 
   feed: function () {
     var user = this.collection.getOrFetch(window.CURRENT_USER_ID);
-    var feedView = new BowserBook.Views.FeedContent({
-      model: user
-    });
+    var feedView = new BowserBook.Views.FeedContent({ model: user });
     this.dashboard(feedView);
   },
 
@@ -54,11 +52,7 @@ BowserBook.Routers.Router = Backbone.Router.extend({
 
   show: function (id) {
     var user = this.collection.getOrFetch(id);
-    var currentUser = this.collection.getOrFetch(window.CURRENT_USER_ID);
-    var view = new BowserBook.Views.UserShow({
-      model: user,
-      currentUser: currentUser
-    });
+    var view = new BowserBook.Views.UserShow({ model: user });
     this._swapView(view);
   },
 

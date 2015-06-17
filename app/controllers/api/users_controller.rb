@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  before_action :validate_user, only: [:update]
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -27,6 +29,12 @@ class Api::UsersController < ApplicationController
 
       render json: model_objects
     end
+  end
+
+  private
+
+  def validate_user
+    render json: {}, status: 403 unless Integer(params[:id]) == current_user.id
   end
 
 end

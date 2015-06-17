@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :comments, foreign_key: :author_id, dependent: :destroy
   has_many :sent_messages, foreign_key: :sender_id, class_name: "Message"
   has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
+  has_many :notifications
 
   after_initialize :ensure_session_token, :ensure_image_url
 
