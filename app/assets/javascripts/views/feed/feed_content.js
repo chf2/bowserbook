@@ -9,7 +9,8 @@ BowserBook.Views.FeedContent = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'sync', this.render);
     var feedWallView = new BowserBook.Views.Wall({
       model: this.model,
-      collection: this.collection
+      collection: this.collection,
+      user: this.model
     });
     this.addSubview('.feed-wall-container', feedWallView)
   },

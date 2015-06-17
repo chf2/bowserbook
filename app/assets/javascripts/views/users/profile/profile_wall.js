@@ -11,7 +11,7 @@ BowserBook.Views.Wall = Backbone.CompositeView.extend({
     });
     var wallPostsView = new BowserBook.Views.PostsIndex({
       collection: this.collection,
-      currentUser: options.user
+      user: options.user
     });
     this.addSubview('.new-post-container', newPostView);
     this.addSubview('.wall-posts-container', wallPostsView);
