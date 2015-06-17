@@ -106,13 +106,15 @@
 
   li:not(.notifications-base) {
     position: relative;
-    font-size: 12px;
+    font-size: 14px;
     padding-top: 5px;
     padding-bottom: 5px;
     line-height: 20px;
     height: 50px;
+    display: block;
     &:hover {
       background-color: #EFEFEF;
+      cursor: pointer;
     }
   }
 

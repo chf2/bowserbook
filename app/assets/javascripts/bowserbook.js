@@ -5,6 +5,8 @@ window.BowserBook = {
   Routers: {},
   initialize: function () {
     var users = new BowserBook.Collections.Users();
+    BowserBook.Notifications = new BowserBook.Collections.Notifications();
+    BowserBook.Notifications.fetch();
     var router = new BowserBook.Routers.Router({
       collection: users,
       $rootEl: $('#main')

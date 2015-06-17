@@ -2,9 +2,9 @@ class Api::NotificationsController < ApplicationController
   before_action :validate_user, only: [:update, :destroy, :show]
 
   def create
-    @notification = current_user.notifications.new(notification_params)
+    @notification = Notification.new(notification_params)
     @notification.read = false
-    if @notificaiton.save
+    if @notification.save
       render :show
     else
       render json: @notification.errors.full_messages, status: 422
@@ -16,7 +16,7 @@ class Api::NotificationsController < ApplicationController
   end
 
   def index
-    @notifications = current_user.notifications
+    @notifications = current_user.new_notifications
   end
 
   def update
@@ -37,7 +37,7 @@ class Api::NotificationsController < ApplicationController
   private 
 
   def notification_params
-    params.require(:notification).permit(:body, :read)
+    params.require(:notification).permit(:body, :read, :incoming, :user_id)
   end
 
   def validate_user

@@ -14,6 +14,10 @@ BowserBook.Models.User = Backbone.Model.extend({
       this.friendRequestsIn().set(response.friend_requests_in);
       delete response.friend_requests_in;
     }
+    if (response.notifications) {
+      this.notifications().set(response.notifications);
+      delete response.notifications;
+    }
 
     return response;
   },
@@ -41,6 +45,15 @@ BowserBook.Models.User = Backbone.Model.extend({
     this._messages.fetch();
 
     return this._messages;
+  },
+
+  notifications: function () {
+    if (!this._notifications) {
+      this._notifications = new BowserBook.Collections.Notifications();
+    }
+    this._notifications.fetch();
+
+    return this._notifications;
   },
 
   wallPosts: function () {

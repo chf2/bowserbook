@@ -29,8 +29,33 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
   sendMessage: function (event) {
     event.preventDefault();
     params = $(event.currentTarget).serializeJSON();
+    var name = $(event.currentTarget).find('select option:selected').text();
     var message = new BowserBook.Models.Message(params);
-    message.save();
+
+    message.save({}, {
+      success: function() {
+        var notificationOutMessage = "✓ Message sent to " + name;
+        var notificationInMessage = 
+          "Received message from " + this.model.escape('username') + ".";
+        var notificationOut = new BowserBook.Models.Notification({
+          body: notificationOutMessage,
+          incoming: false,
+          user_id: window.CURRENT_USER_ID
+        });
+        var notificationIn = new BowserBook.Models.Notification({
+          body: notificationInMessage,
+          incoming: true,
+          user_id: $(event.currentTarget).find('select').val()
+        });
+        notificationOut.save({}, {
+          success: function () {
+            BowserBook.Notifications.add(notificationOut);
+          }
+        });
+        notificationIn.save();
+      }.bind(this)
+    });
+
     this.showIndex();
   },
 

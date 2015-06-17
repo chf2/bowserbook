@@ -12,7 +12,9 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   initialize: function () {
     this.collection = new BowserBook.Collections.Users();
+    this.notifications = BowserBook.Notifications;
     this._notificationsShowing = false;
+    this.listenTo(this.notifications, 'add', this.displayOutNotifications);
   },
 
   render: function () {
@@ -41,7 +43,7 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   getUserResults: function (searchString) {
     var results = [];
-    this.collection.each(function(user) {
+    this.collection.each(function (user) {
       if (user.escape('username').toLowerCase()
             .match(searchString.toLowerCase())
          )
@@ -68,23 +70,41 @@ BowserBook.Views.Nav = Backbone.View.extend({
     });
   },
 
+  // NOTIFICATIONS LOGIC
+
+  displayOutNotifications: function (notification) {
+    var list = this.$('.notifications-list');
+    var item = $("<li class='notification-item'>");
+    item.html(notification.escape('body'));
+    list.append(item);
+
+    if (!this._notificationsShowing) {
+      list.slideDown(600);
+    }
+    setTimeout(function () {
+      list.slideUp(600, function () {
+        BowserBook.Notifications.remove(notification);
+        item.remove();
+      });
+    }, 3000);
+    this._notificationsShowing = false;
+  },
+
   handleNotificationsClick: function (event) {
     if (this._notificationsShowing) {
-      this.hideNotifications()
+      this.hideNotifications();
     } else {
-      this.showNotifications()
+      this.showNotifications();
     }
   },
 
   showNotifications: function (event) {
     this._notificationsShowing = true;
-    var list = this.$('.notifications-list');
-    list.show('slide');
+    this.$('.notifications-list').slideDown();
   },
 
   hideNotifications: function (event) {
     this._notificationsShowing = false;
-    var list = this.$('.notifications-list');
-    list.hide('slide');
+    this.$('.notifications-list').slideUp();
   }
 })

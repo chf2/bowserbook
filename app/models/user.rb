@@ -72,6 +72,10 @@ class User < ActiveRecord::Base
     self.image_url ||= '/assets/default_img.png'
   end
 
+  def new_notifications
+    notifications.where('incoming = TRUE AND read = FALSE')
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
