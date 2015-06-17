@@ -1,43 +1,45 @@
-<nav class="navbar navbar-fixed navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/">BowserBook</a>
-    </div>
-    <!-- Users Search TKTKTKTK -->
-    <div class="navbar-form">
-      <div class="users-search input-group">
-        <input type="text" 
-               class="form-control" 
-               placeholder="Search BowserBook"
-               name="username"
-               id="users-search">
+<div class="bb-navbar-container">
+  <nav class="bb-navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/">BowserBook</a>
       </div>
-      <ul class="search-results-container"></ul>
-    </div>
+      <!-- Users Search TKTKTKTK -->
+      <div class="navbar-form">
+        <div class="users-search input-group">
+          <input type="text" 
+                 class="form-control" 
+                 placeholder="Search BowserBook"
+                 name="username"
+                 id="users-search">
+        </div>
+        <ul class="search-results-container"></ul>
+      </div>
 
-    <!-- Main Links -->
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a href="#/profiles/<%= window.CURRENT_USER_ID %>">
-          <%= window.CURRENT_USER_NAME %>
-        </a>
-      </li>
-      <li><a href="#/home">Home</a></li>
-      <li><a href="#/messages">Messages</a></li>
-      <li><a href="#">Notifications</a></li>
-    <!-- Sign Out -->
-      <li>
-        <form action="session" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="hidden" 
-                 name="authenticity_token" 
-                 id="sign_out_auth_token"
-                 value="">
-          <input type="submit" 
-                 class="btn btn-default navbar-btn sign-out"
-                 value="Sign Out">
-        </form>
-      </li>
-    </ul>
-  </div><!-- /.container-fluid -->
-</nav>
+      <!-- Main Links -->
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#/profiles/<%= window.CURRENT_USER_ID %>">
+            <%= window.CURRENT_USER_NAME %>
+          </a>
+        </li>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/messages">Messages</a></li>
+        <li><a href="#">Notifications</a></li>
+      <!-- Sign Out -->
+        <li>
+          <form action="session" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" 
+                   name="authenticity_token" 
+                   id="sign_out_auth_token"
+                   value="">
+            <input type="submit" 
+                   class="btn btn-default navbar-btn sign-out"
+                   value="Sign Out">
+          </form>
+        </li>
+      </ul>
+    </div><!-- /.container-fluid -->
+  </nav>
+</div>

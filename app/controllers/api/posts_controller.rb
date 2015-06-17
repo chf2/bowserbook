@@ -41,7 +41,7 @@ class Api::PostsController < ApplicationController
   def get_feed
     friend_ids = current_user.friends.pluck(:id)
     friend_ids << current_user.id
-    Post.where(author_id: friend_ids)
+    Post.where(author_id: friend_ids).limit(15)
   end
 
   private
