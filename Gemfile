@@ -17,6 +17,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'cloudinary'
 
+gem 'better_errors'
+gem 'binding_of_caller'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
