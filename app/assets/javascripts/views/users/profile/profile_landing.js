@@ -42,9 +42,27 @@ BowserBook.Views.ProfileLanding = Backbone.CompositeView.extend({
       friended_id: this.model.id
     });
     newFriendship.save({}, {
-      success: function () {
+      success: function (model) {
         this.model.set('request_sent', true);
         this.render();
+
+        debugger
+
+        var outMessage = "Sent friend request to " + 
+          this.model.escape('username') + ".";
+        var inMessage = 
+          model.escape('friender_username') + " sent you a friend request.";
+        BowserBook.NotificationsOut.createNotification({
+          body: outMessage,
+          incoming: false,
+          user_id: model.escape('friender_id'),
+          show: false
+        });
+        BowserBook.NotificationsIn.createNotification({
+          body: inMessage,
+          incoming: true,
+          user_id: model.escape('friended_id')
+        });
       }.bind(this)
     });
   }

@@ -27,6 +27,8 @@ BowserBook.Views.Nav = Backbone.View.extend({
     return this;
   },
 
+  // SEARCH METHODS
+
   appendSearchResults: function (results) {
     results.forEach(function (user) {
       var resultListItem = $('<li class="search-result">');
@@ -72,7 +74,7 @@ BowserBook.Views.Nav = Backbone.View.extend({
     });
   },
 
-  // NOTIFICATIONS LOGIC
+  // NOTIFICATIONS METHODS
 
   displayNotificationsOut: function (notification) {
     var list = this.$('.notifications-out-list');
@@ -98,30 +100,35 @@ BowserBook.Views.Nav = Backbone.View.extend({
     }
   },
 
+  hideNotifications: function (event) {
+    this._notificationsShowing = false;
+    this.$('.notifications-in-list').slideUp();
+    BowserBook.NotificationsIn.each(function (notification) {
+      notification.save({ read: true });
+    });
+    BowserBook.NotificationsIn.fetch();
+  },
+
   showNotifications: function (event) {
     this._notificationsShowing = true;
     this.$('.notifications-in-list').slideDown();
   },
 
-  hideNotifications: function (event) {
-    this._notificationsShowing = false;
-    this.$('.notifications-in-list').slideUp();
-  },
-
   updateNotificationsIn: function () {
     var list = this.$('.notifications-in-list');
-    var badge = this.$('.notifications-badge')
+    var badge = this.$('.notifications-badge');
     var numNotifications = this.notificationsIn.length;
     this.notificationsIn.each(function (notification) {
       var item = $("<li class='notification-item'>");
       item.html(notification.escape('body'));
       list.append(item);
     });
+
     badge.html(numNotifications);
     if (numNotifications > 0) {
-      badge.css('background-color', 'red')
+      badge.css('background-color', 'red');
     } else {
-      badge.css('background-color', '#AAA')
+      badge.css('background-color', '#AAA');
     }
   }
-})
+});

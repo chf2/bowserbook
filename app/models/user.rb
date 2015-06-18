@@ -25,9 +25,9 @@ class User < ActiveRecord::Base
   def background_image_url
     return "" unless self.background_public_id
     new_background_public_id = background_public_id.sub(
-                      '/image/upload/', 
-                      '/image/upload/t_bg'
-                     )
+                                '/image/upload/', 
+                                '/image/upload/t_bg'
+                               )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_background_public_id
   end
 
@@ -58,9 +58,9 @@ class User < ActiveRecord::Base
   def image_url
     return "" unless self.profile_public_id
     new_profile_public_id = profile_public_id.sub(
-                      '/image/upload/', 
-                      '/image/upload/c_limit,w_150'
-                     )
+                              '/image/upload/', 
+                              '/image/upload/c_limit,w_150'
+                             )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_profile_public_id
   end
 
@@ -73,12 +73,16 @@ class User < ActiveRecord::Base
   end
 
   def new_notifications
-    x = notifications.where('incoming = TRUE AND read = FALSE')
+    notifications.where('incoming = TRUE AND read = FALSE')
   end
 
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def recent_activity
+    notifications.where(incoming: false).all
   end
 
   def reset_session_token!
@@ -90,9 +94,9 @@ class User < ActiveRecord::Base
   def thumbnail_url
     return "" unless self.profile_public_id
     new_profile_public_id = self.profile_public_id.sub(
-                      '/image/upload/', 
-                      '/image/upload/t_media_lib_thumb'
-                     )
+                              '/image/upload/', 
+                              '/image/upload/t_media_lib_thumb'
+                            )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_profile_public_id
   end
 end
