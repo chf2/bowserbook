@@ -15,6 +15,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.static-page-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: no-repeat;
+}
+
 #main {
   width: 800px;
   margin: 0 auto;
@@ -31,7 +40,7 @@
 .landing {
   position: relative;
   width: 800px;
-  height: 350px;
+  height: 300px;
 }
 
 .lower-profile-content {

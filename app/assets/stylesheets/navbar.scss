@@ -1,8 +1,14 @@
 /* NAVBAR */
 
-.navbar-form {
+.bb-navbar-form {
   position: relative;
-  display: inline-block;
+  top: 7px;
+  float: left;
+  width: 325px;
+}
+
+.bb-navbar-header {
+  float: left;
 }
 
 .search-results-container {
@@ -49,6 +55,7 @@
 
 .bb-navbar-left {
   float: left;
+  width: 500px;
 }
 
 .bb-navbar-right {
@@ -113,8 +120,8 @@
     display: block;
     vertical-align: middle;
     &:hover {
+      cursor: default;
       background-color: #EFEFEF;
-      cursor: pointer;
     }
   }
 
@@ -123,6 +130,9 @@
     height: 25px;
     font-size: 10px;
     font-weight: bold;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

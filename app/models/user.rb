@@ -27,14 +27,14 @@ class User < ActiveRecord::Base
   def background_image_url
     new_background_public_id = background_public_id.sub(
                                 'image/upload/', 
-                                'image/upload/t_bg/'
+                                'image/upload/t_bbbg/'
                                )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_background_public_id
   end
 
   def ensure_public_ids
     self.profile_public_id ||= 'image/upload/v1434653684/bowserbook_images/default_profile.png'
-    self.background_public_id ||= 'image/upload/v1434653683/bowserbook_images/default_background.png'
+    self.background_public_id ||= 'image/upload/c_crop,g_south,h_480,w_1280/v1434653683/bowserbook_images/default_background.png'
   end
 
   def ensure_session_token
