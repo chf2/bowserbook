@@ -6,6 +6,7 @@ json.extract! user,
   :interests, 
   :location, 
   :rival,
+  :short_username,
   :status,
   :summary,
   :thumbnail_url,
@@ -38,7 +39,7 @@ end
 
 json.friends user.friends.all do |friend|
   json.id friend.id
-  json.username friend.username
+  json.username friend.short_username
   json.image_url friend.image_url
   json.status friend.status
 end

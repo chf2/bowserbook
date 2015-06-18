@@ -1,7 +1,7 @@
 <img src="<%= message.escape('sender_image_url') %>" class="message-img">
 
 <span class="message-username">
-  <%= message.escape('sender_username') %>
+  <%= message.escape('sender_short_username') %>
 </span>
 
 <% if (message.escape('read') === 'true') { %>

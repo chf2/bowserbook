@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       log_in(@user)
       redirect_to "#/profiles/#{@user.id}"
     else
-      flash[:errors] = @user.errors.full_messages
+      flash.now[:danger] = @user.errors.full_messages
       render :new
     end
   end

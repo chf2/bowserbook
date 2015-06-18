@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     presence: true
   )
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :username, length: { maximum: 16 }
   
   has_many :posts, foreign_key: :author_id, dependent: :destroy
   has_many :wall_posts, class_name: "Post", foreign_key: :about_id
@@ -15,7 +16,8 @@ class User < ActiveRecord::Base
   has_many :received_messages, foreign_key: :recipient_id, class_name: "Message"
   has_many :notifications
 
-  after_initialize :ensure_session_token, :ensure_image_url
+  after_initialize :ensure_session_token
+  before_save :ensure_public_ids
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
@@ -23,12 +25,16 @@ class User < ActiveRecord::Base
   end
 
   def background_image_url
-    return "" unless self.background_public_id
     new_background_public_id = background_public_id.sub(
-                                '/image/upload/', 
-                                '/image/upload/t_bg'
+                                'image/upload/', 
+                                'image/upload/t_bg/'
                                )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_background_public_id
+  end
+
+  def ensure_public_ids
+    self.profile_public_id ||= 'image/upload/v1434653684/bowserbook_images/default_profile.png'
+    self.background_public_id ||= 'image/upload/v1434653683/bowserbook_images/default_background.png'
   end
 
   def ensure_session_token
@@ -56,20 +62,15 @@ class User < ActiveRecord::Base
   end
 
   def image_url
-    return "" unless self.profile_public_id
     new_profile_public_id = profile_public_id.sub(
-                              '/image/upload/', 
-                              '/image/upload/c_limit,w_150'
+                              'image/upload/', 
+                              'image/upload/c_limit,w_150/'
                              )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_profile_public_id
   end
 
   def is_password?(password)
     BCrypt::Password.new(password_digest).is_password?(password)
-  end
-
-  def ensure_image_url
-    self.image_url ||= '/assets/default_img.png'
   end
 
   def new_notifications
@@ -91,11 +92,14 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def short_username
+    username.length <= 11 ? username : username[0..9] + "..."
+  end
+
   def thumbnail_url
-    return "" unless self.profile_public_id
     new_profile_public_id = self.profile_public_id.sub(
-                              '/image/upload/', 
-                              '/image/upload/t_media_lib_thumb'
+                              'image/upload/', 
+                              'image/upload/t_media_lib_thumb/'
                             )
     "http://res.cloudinary.com/#{ENV['CLOUD_NAME']}/" + new_profile_public_id
   end
