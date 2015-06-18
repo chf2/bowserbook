@@ -217,32 +217,22 @@ Post.create!(author_id: 2, about_id: 6, body: "What, you don't think I could han
 Post.create!(author_id: 3, about_id: 11, body: "Any chance you're looking for a job?")
 Post.create!(author_id: 3, about_id: 11, body: "Some very exciting opportunties just opened up...")
 Post.create!(author_id: 4, about_id: 6, body: "Toad, please find Mario!")
+Post.create!(author_id: 7, about_id: 3, body: "We missed you at bad-guy roundtable last week. What have you been doing?")
 Post.create!(author_id: 8, about_id: 7, body: "Wanna play tennis?")
 Post.create!(author_id: 8, about_id: 7, body: "C'mon let's play some doubles!")
 Post.create!(author_id: 9, about_id: 10, body: "ROAR!")
+Post.create!(author_id: 9, about_id: 3, body: "When do I get to start coming on your adventures? Can I borrow the secret key?")
 Post.create!(author_id: 10, about_id: 9, body: "Gaga")
 Post.create!(author_id: 10, about_id: 5, body: "Yoshi!")
 Post.create!(author_id: 11, about_id: 3, body: "The job sounds interesting. I'll send you a message.")
 
+Comment.create!(author_id: 6, post_id: 1, body: "Don't you have more important things to worry about??")
+Comment.create!(author_id: 2, post_id: 1, body: "Well, Toad, apparently you don't need my help.")
+Comment.create!(author_id: 6, post_id: 5, body: "Thank you!")
+Comment.create!(author_id: 6, post_id: 4, body: "You're the worst, Bowser!")
+Comment.create!(author_id: 1, post_id: 4, body: "I'm coming for her and there's nothing you can do to stop me!")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Message.create!(sender_id: 2, recipient_id: 1, body: "I found some great pipe courses in the outer Kingdom. I'll send you the links later!", read: false)
+Message.create!(sender_id: 6, recipient_id: 1, body: "Mario, are you there? This is important! Please respond!", read: false)
+Message.create!(sender_id: 8, recipient_id: 3, body: "Are you still up for the semi-annual bad-guy tennis tournament? Let me know!", read: false)
+Message.create!(sender_id: 11, recipient_id: 3, body: "Sounds like you've been keeping busy. What does the job entail, and what kind of bonus are we talking about?", read: false)
