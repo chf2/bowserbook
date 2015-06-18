@@ -11,7 +11,7 @@ BowserBook.Views.CommentsIndex = Backbone.CompositeView.extend({
 
   addComment: function(comment) {
     var commentView = new BowserBook.Views.CommentIndexItem({ model: comment });
-    this.addSubview('.comments-container', commentView, true);
+    this.addSubview('.comments-container', commentView);
   },
 
   render: function () {

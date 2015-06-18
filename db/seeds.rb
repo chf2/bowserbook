@@ -30,7 +30,7 @@ User.create!(
   birthday: Time.now - 32.years,
   summary: "Everyone always talks about Mario, but I can beat him any day!",
   status: "Going with green today.",
-  profile_public_id: "image/upload/v1434662720/bowserbook_images/bowserbook_images/luigi_profile.png",
+  profile_public_id: "image/upload/v1434662720/bowserbook_images/luigi_profile.png"
   background_public_id: "image/upload/v1434219755/bowserbook_images/luigi_bg.png"
 )
 
@@ -150,8 +150,8 @@ User.create!(
   birthday: Time.now - 2.years,
   summary: "Waaaaaahhhhhhh!! Waaaaaaahhhhhhh!!",
   status: "Waaaaaahhhhhhh!!",
-  profile_public_id: "image/upload/v1434642766/bowserbook_images/babymario_profile.png",
-  background_public_id: "image/upload/v1434654126/bowserbook_images/babymario_bg.png"
+  profile_public_id: "image/upload/v1434654119/bowserbook_images/b8wu2pztg21tsrmt6367.png"
+  background_public_id: "image/upload/v1434654126/bowserbook_images/jply4re3o6uznhkneoil.png"
 )
 
 Post.create!(author_id: 10, about_id: 10, body: "Waaaaaahhhhhhh!!")
@@ -166,7 +166,7 @@ User.create!(
   summary: "King of all Boo. Contest winners beware!",
   status: "BOO",
   profile_public_id: "image/upload/v1434219979/bowserbook_images/boo_profile.png",
-  background_public_id: "image/upload/v1434662719/bowserbook_images/boo_bg.png"
+  background_public_id: "image/upload/v1434662719/bowserbook_images/boo_background.png"
 )
 
 Post.create!(author_id: 11, about_id: 11, body: "BOO")
@@ -226,13 +226,28 @@ Post.create!(author_id: 10, about_id: 9, body: "Gaga")
 Post.create!(author_id: 10, about_id: 5, body: "Yoshi!")
 Post.create!(author_id: 11, about_id: 3, body: "The job sounds interesting. I'll send you a message.")
 
-Comment.create!(author_id: 6, post_id: 1, body: "Don't you have more important things to worry about??")
-Comment.create!(author_id: 2, post_id: 1, body: "Well, Toad, apparently you don't need my help.")
-Comment.create!(author_id: 6, post_id: 5, body: "Thank you!")
-Comment.create!(author_id: 6, post_id: 4, body: "You're the worst, Bowser!")
-Comment.create!(author_id: 1, post_id: 4, body: "I'm coming for her and there's nothing you can do to stop me!")
+Comment.create!(author_id: 6, post_id: 13, body: "Don't you have more important things to worry about??")
+Comment.create!(author_id: 2, post_id: 13, body: "Well, Toad, apparently you don't need my help.")
+Comment.create!(author_id: 6, post_id: 17, body: "Thank you!")
+Comment.create!(author_id: 6, post_id: 16, body: "You're the worst, Bowser!")
+Comment.create!(author_id: 1, post_id: 16, body: "I'm coming for her and there's nothing you can do to stop me!")
 
 Message.create!(sender_id: 2, recipient_id: 1, body: "I found some great pipe courses in the outer Kingdom. I'll send you the links later!", read: false)
 Message.create!(sender_id: 6, recipient_id: 1, body: "Mario, are you there? This is important! Please respond!", read: false)
 Message.create!(sender_id: 8, recipient_id: 3, body: "Are you still up for the semi-annual bad-guy tennis tournament? Let me know!", read: false)
 Message.create!(sender_id: 11, recipient_id: 3, body: "Sounds like you've been keeping busy. What does the job entail, and what kind of bonus are we talking about?", read: false)
+
+Notification.create!(user_id: 1, body: "Luigi posted on your wall.", read: false, incoming: true)
+Notification.create!(user_id: 1, body: "Toad posted on your wall.", read: false, incoming: true)
+Notification.create!(user_id: 1, body: "Bowser posted on your wall.", read: false, incoming: true)
+Notification.create!(user_id: 1, body: "Luigi sent you a message.", read: false, incoming: true)
+Notification.create!(user_id: 1, body: "Toad sent you a message.", read: false, incoming: true)
+Notification.create!(user_id: 1, body: "Toad commented on your post.", read: false, incoming: true)
+Notification.create!(user_id: 3, body: "Wario posted on your wall.", read: false, incoming: true)
+Notification.create!(user_id: 3, body: "Baby Bowser posted on your wall.", read: false, incoming: true)
+Notification.create!(user_id: 3, body: "King Boo posted on your wall.", read: false, incoming: true)
+Notification.create!(user_id: 3, body: "Waluigi sent you a message.", read: false, incoming: true)
+Notification.create!(user_id: 3, body: "King Boo sent you a message.", read: false, incoming: true)
+Notification.create!(user_id: 3, body: "Mario commented on your post.", read: false, incoming: true)
+Notification.create!(user_id: 3, body: "Toad commented on your post.", read: false, incoming: true)
+
