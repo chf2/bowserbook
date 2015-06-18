@@ -4,7 +4,7 @@ BowserBook.Collections.Notifications = Backbone.Collection.extend({
   model: BowserBook.Models.Notification,
 
   createNotification: function (attrs) {
-    // Also takes show argument in attrs
+    // body, incoming, user_id, show (Out only)
     var callback = function () {};
     var notification = new BowserBook.Models.Notification({
       body: attrs.body,
