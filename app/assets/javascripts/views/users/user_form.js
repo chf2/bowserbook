@@ -30,12 +30,20 @@ BowserBook.Views.UserForm = Backbone.View.extend({
         params = this.$('form').serializeJSON();
 
     userForm.model.save(params, {
-      success: function () {
+      success: function (model) {
         userForm.collection.add(userForm.model, { merge: true });
         Backbone.history.navigate(
           '/profiles/' + userForm.model.id, 
           { trigger: true } 
         );
+
+        var outMessage = "✓ Profile updated!"
+        BowserBook.NotificationsOut.createNotification({
+          body: outMessage,
+          incoming: false,
+          user_id: model.id,
+          show: true
+        });
       },
       error: function (model, response) {
         userForm.$el.append(response.to_json);

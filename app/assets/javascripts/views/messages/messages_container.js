@@ -35,13 +35,14 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
 
     message.save({}, {
       success: function() {
-        var outMessage = "✓ Message sent to " + name;
+        var outMessage = "✓ Message sent to " + name + ".";
         var inMessage = 
           "Received message from " + this.model.escape('username') + ".";
         BowserBook.NotificationsOut.createNotification({
           body: outMessage,
           incoming: false,
-          user_id: window.CURRENT_USER_ID
+          user_id: window.CURRENT_USER_ID,
+          show: true
         });
         BowserBook.NotificationsIn.createNotification({
           body: inMessage,

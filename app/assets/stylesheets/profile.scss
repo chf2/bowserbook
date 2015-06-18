@@ -104,6 +104,7 @@
   padding-left: 0;
   list-style: none;
   li {
+    position: relative;
     padding-left: 5px;
     width: 95%;
     height: 50px;
@@ -118,14 +119,27 @@
 }
 
 .friend-request-btn {
-  height: 100%;
   float: right;
-  font-size: 10px;
   padding-left: 7px;
   padding-right: 7px;
+  margin-right: 4px;
+  margin-top: 7px;
   border: 1px solid #E7E7E7;
   border-radius: 2px;
-  vertical-align: text-middle;
+}
+
+.friend-requests-list .friend-request-btn {
+  height: 35px;
+  width: 35px;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.landing-friend-status-respond .friend-request-btn {
+  height: 45px;
+  width: 45px;
+  line-height: 40px;
+  font-size: 16px;
 }
 
 .landing-friend-status {

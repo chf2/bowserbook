@@ -34,20 +34,36 @@ BowserBook.Views.PostForm = Backbone.View.extend({
     event.preventDefault();
     var params = $(event.currentTarget).serializeJSON();
     this.model.save(params, {
-      success: function () {
+      success: function (model) {
         if (this.collection) {
           this.collection.add(this.model);
         }
+
+        if (parseInt(this.aboutId()) === parseInt(window.CURRENT_USER_ID)) {
+          var user = new BowserBook.Models.User({ id: this.aboutId() });
+          user.set({ status: params['post']['body'] });
+          user.save({}, {
+            success: function (model) {
+              BowserBook.NotificationsOut.createNotification({
+                body: "✓ Status updated.",
+                incoming: false,
+                user_id: model.escape('id'),
+                show: true
+              });
+            }
+          });
+        } else {
+          BowserBook.NotificationsIn.createNotification({
+            body: window.CURRENT_USER_NAME + " posted on your wall.",
+            incoming: true,
+            user_id: model.escape('about_id')
+          });
+        }
+
         this.model = new BowserBook.Models.Post({ about_id: this.aboutId() });
         this.render();
       }.bind(this)
     });
-    
-    if (this.aboutId() == window.CURRENT_USER_ID) {
-      var user = new BowserBook.Models.User({ id: this.aboutId() });
-      user.set({ status: params['post']['body'] });
-      user.save();
-    }
   },
 
   render: function () {

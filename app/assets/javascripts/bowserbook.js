@@ -7,7 +7,7 @@ window.BowserBook = {
     var users = new BowserBook.Collections.Users();
     BowserBook.NotificationsOut = new BowserBook.Collections.Notifications();
     BowserBook.NotificationsIn = new BowserBook.Collections.Notifications();
-    BowserBook.NotificationsIn.fetch();
+    BowserBook.NotificationsIn.fetch({ reset: true });
     var router = new BowserBook.Routers.Router({
       collection: users,
       $rootEl: $('#main')

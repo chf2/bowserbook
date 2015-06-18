@@ -16,7 +16,7 @@ BowserBook.Views.Nav = Backbone.View.extend({
     this.notificationsIn = BowserBook.NotificationsIn;
     this._notificationsShowing = false;
     this.listenTo(this.notificationsOut, 'add', this.displayNotificationsOut);
-    this.listenTo(this.notificationsIn, 'sync', this.updateNotificationsIn);
+    this.listenTo(this.notificationsIn, 'reset add', this.updateNotificationsIn);
   },
 
   render: function () {
@@ -81,8 +81,8 @@ BowserBook.Views.Nav = Backbone.View.extend({
     var item = $("<li class='notification-item'>");
     item.html(notification.escape('body'));
     list.append(item);
-
     list.slideDown(600);
+
     setTimeout(function () {
       list.slideUp(600, function () {
         BowserBook.NotificationsOut.remove(notification);
@@ -102,16 +102,18 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   hideNotifications: function (event) {
     this._notificationsShowing = false;
-    this.$('.notifications-in-list').slideUp();
-    BowserBook.NotificationsIn.each(function (notification) {
-      notification.save({ read: true });
-    });
-    BowserBook.NotificationsIn.fetch();
+    this.$('.notifications-in-list').slideUp(600, function () {
+      BowserBook.NotificationsIn.each(function (notification) {
+        notification.save({ read: true });
+      });
+      this.$('.notification-item').remove();
+      BowserBook.NotificationsIn.fetch({ reset: true });
+    }.bind(this));
   },
 
   showNotifications: function (event) {
     this._notificationsShowing = true;
-    this.$('.notifications-in-list').slideDown();
+    this.$('.notifications-in-list').slideDown(600);
   },
 
   updateNotificationsIn: function () {
