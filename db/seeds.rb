@@ -30,7 +30,7 @@ User.create!(
   birthday: Time.now - 32.years,
   summary: "Everyone always talks about Mario, but I can beat him any day!",
   status: "Going with green today.",
-  profile_public_id: "image/upload/v1434157467/bowserbook_images/bowserbook_images/luigi_profile.png",
+  profile_public_id: "image/upload/v1434662720/bowserbook_images/bowserbook_images/luigi_profile.png",
   background_public_id: "image/upload/v1434219755/bowserbook_images/luigi_bg.png"
 )
 
@@ -38,11 +38,11 @@ Post.create!(author_id: 2, about_id: 2, body: "Going with green today.")
 
 User.create!(
   username: "Bowser",
-  password: "bowserpassword",
+  password: "password",
   location: "Princess Peach's Castle",
   rival: "Mario",
   interests: "Stealing things, being bad, breathing fire, raising Bowser Jr.",
-  birthday: Time.now - 30.years - 6.months
+  birthday: Time.now - 30.years - 6.months,
   summary: "I am Bowser, and I am the best. This website was named after me for a reason!",
   status: "Plotting my next move...",
   profile_public_id: "image/upload/v1434219865/bowserbook_images/a9tim5clwljp89lt92cm.png#034a03a1d9b9b35b75ee79f2652a93aaf4144b2f",
@@ -57,7 +57,7 @@ User.create!(
   location: "My Castle",
   rival: "Bowser",
   interests: "Getting captured, apparently",
-  birthday: Time.now - 30.years - 3.days,
+  birthday: Time.now - 30.years,
   summary: "I own most of the real estate in the Mario universe.",
   status: "Help!",
   profile_public_id: "image/upload/v1434219979/bowserbook_images/milsrrrjhapyxahuyqyl.png#41da5d2137be29beae3599f2aa0b8589722b9afa",
@@ -72,7 +72,7 @@ User.create!(
   location: "Yoshi's Island",
   rival: "Goombas and Koopas",
   interests: "Laying eggs, eating things",
-  birthday: Time.now - 25.years -32.days,
+  birthday: Time.now - 25.years,
   summary: "Excellent racer. Mario's favorite companion. Koopas and Goombas, look out!",
   status: "Pop!",
   profile_public_id: "image/upload/v1434219979/bowserbook_images/yoshi_profile.png",
@@ -87,7 +87,7 @@ User.create!(
   location: "Mushroom Kingdom",
   rival: "Any enemy of the Mushroom Kingdom",
   interests: "Mushroom hats, helping my friends",
-  birthday: Time.now - 30.years - 3.days,
+  birthday: Time.now - 30.years,
   summary: "A loyal citizen of the Mushroom Kingdom, I'm always on the lookout for trouble.",
   status: "Someone help! The princess has been captured by Bowser!",
   profile_public_id: "image/upload/v1434219979/bowserbook_images/toad_profile.png",
@@ -121,7 +121,7 @@ User.create!(
   summary: "I love winning at tennis, winning at dancing, and winning.",
   status: "Deuce",
   profile_public_id: "image/upload/v1434219979/bowserbook_images/waluigi_profile.png",
-  background_public_id: "image/upload/v1434219942/bowserbook_images/waluigi_bg.png"
+  background_public_id: "image/upload/c_crop,h_1200,w_3200,y_100/v1434219942/bowserbook_images/waluigi_bg.png"
 )
 
 Post.create!(author_id: 8, about_id: 8, body: "Deuce")
@@ -150,8 +150,8 @@ User.create!(
   birthday: Time.now - 2.years,
   summary: "Waaaaaahhhhhhh!! Waaaaaaahhhhhhh!!",
   status: "Waaaaaahhhhhhh!!",
-  profile_public_id: "image/upload/v1434219979/bowserbook_images/babymario_profile.png",
-  background_public_id: "image/upload/v1434219942/bowserbook_images/babymario_bg.png"
+  profile_public_id: "image/upload/v1434642766/bowserbook_images/babymario_profile.png",
+  background_public_id: "image/upload/v1434654126/bowserbook_images/babymario_bg.png"
 )
 
 Post.create!(author_id: 10, about_id: 10, body: "Waaaaaahhhhhhh!!")
@@ -166,7 +166,7 @@ User.create!(
   summary: "King of all Boo. Contest winners beware!",
   status: "BOO",
   profile_public_id: "image/upload/v1434219979/bowserbook_images/boo_profile.png",
-  background_public_id: "image/upload/v1434219942/bowserbook_images/boo_bg.png"
+  background_public_id: "image/upload/v1434662719/bowserbook_images/boo_bg.png"
 )
 
 Post.create!(author_id: 11, about_id: 11, body: "BOO")
@@ -186,6 +186,63 @@ Post.create!(author_id: 12, about_id: 12, body: "Enjoying BowserBook")
 
 Friendship.create!(friender_id: 1, friended_id: 2, responded: true, accepted: true)
 Friendship.create!(friender_id: 1, friended_id: 3, responded: true, accepted: true)
-Friendship.create!(friender_id: 1, friended_id: 4, responded: true, accepted: true)
-Friendship.create!(friender_id: 3, friended_id: 4, responded: true, accepted: true)
+Friendship.create!(friender_id: 1, friended_id: 6, responded: true, accepted: true)
+Friendship.create!(friender_id: 1, friended_id: 10, responded: true, accepted: true)
+Friendship.create!(friender_id: 5, friended_id: 1, responded: false, accepted: false)
+Friendship.create!(friender_id: 4, friended_id: 1, responded: false, accepted: false)
+Friendship.create!(friender_id: 2, friended_id: 4, responded: true, accepted: true)
+Friendship.create!(friender_id: 2, friended_id: 5, responded: true, accepted: true)
+Friendship.create!(friender_id: 2, friended_id: 6, responded: true, accepted: true)
+Friendship.create!(friender_id: 2, friended_id: 12, responded: true, accepted: true)
+Friendship.create!(friender_id: 3, friended_id: 7, responded: true, accepted: true)
+Friendship.create!(friender_id: 3, friended_id: 8, responded: true, accepted: true)
+Friendship.create!(friender_id: 3, friended_id: 9, responded: true, accepted: true)
+Friendship.create!(friender_id: 11, friended_id: 3, responded: false, accepted: false)
+Friendship.create!(friender_id: 4, friended_id: 5, responded: false, accepted: false)
+Friendship.create!(friender_id: 4, friended_id: 6, responded: true, accepted: true)
+Friendship.create!(friender_id: 5, friended_id: 6, responded: true, accepted: true)
+Friendship.create!(friender_id: 5, friended_id: 10, responded: true, accepted: true)
+Friendship.create!(friender_id: 6, friended_id: 10, responded: true, accepted: true)
+Friendship.create!(friender_id: 7, friended_id: 8, responded: true, accepted: true)
+Friendship.create!(friender_id: 9, friended_id: 11, responded: true, accepted: true)
+Friendship.create!(friender_id: 9, friended_id: 10, responded: true, accepted: true)
+Friendship.create!(friender_id: 11, friended_id: 12, responded: true, accepted: true)
+
+Post.create!(author_id: 2, about_id: 1, body: "What are you up to later? Want to go jump into some pipes?")
+Post.create!(author_id: 6, about_id: 1, body: "Mario, where are you? We need you!")
+Post.create!(author_id: 6, about_id: 2, body: "Luigi, have you seen Mario? We really need his help.")
+Post.create!(author_id: 3, about_id: 1, body: "Give up now Mario, you'll never get the princess back...")
+Post.create!(author_id: 1, about_id: 6, body: "OK, I'm on it!")
+Post.create!(author_id: 2, about_id: 6, body: "What, you don't think I could handle this? Unbelievable.")
+Post.create!(author_id: 3, about_id: 11, body: "Any chance you're looking for a job?")
+Post.create!(author_id: 3, about_id: 11, body: "Some very exciting opportunties just opened up...")
+Post.create!(author_id: 4, about_id: 6, body: "Toad, please find Mario!")
+Post.create!(author_id: 8, about_id: 7, body: "Wanna play tennis?")
+Post.create!(author_id: 8, about_id: 7, body: "C'mon let's play some doubles!")
+Post.create!(author_id: 9, about_id: 10, body: "ROAR!")
+Post.create!(author_id: 10, about_id: 9, body: "Gaga")
+Post.create!(author_id: 10, about_id: 5, body: "Yoshi!")
+Post.create!(author_id: 11, about_id: 3, body: "The job sounds interesting. I'll send you a message.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
