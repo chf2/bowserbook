@@ -38,7 +38,12 @@ BowserBook.Views.MessagesContainer = Backbone.CompositeView.extend({
         BowserBook.NotificationsFlash.flashNotification(
           "✓ Message sent to " + name + "."
         );
-      }.bind(this)
+      }.bind(this),
+      error: function (model, response) {
+        BowserBook.NotificationsFlash.flashNotification(
+          "× Message failed to send: " + response.responseJSON[0]
+        );
+      }
     });
 
     this.showIndex();

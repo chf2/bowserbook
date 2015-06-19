@@ -45,7 +45,12 @@ BowserBook.Views.ProfileLanding = Backbone.CompositeView.extend({
       success: function (model) {
         this.model.set('request_sent', true);
         this.render();
-      }.bind(this)
+      }.bind(this),
+      error: function (model, response) {
+        BowserBook.NotificationsFlash.flashNotification(
+          "× Failed to send request: " + response.responseJSON[0]
+        );
+      }
     });
   }
 });

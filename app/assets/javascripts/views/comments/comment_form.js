@@ -29,7 +29,12 @@ BowserBook.Views.CommentForm = Backbone.View.extend({
         this.post.comments().add(this.model);
         this.model = new BowserBook.Models.Comment({ post: this.model.post });
         this.render();
-      }.bind(this)
+      }.bind(this),
+      error: function (model, response) {
+        BowserBook.NotificationsFlash.flashNotification(
+          "× Comment failed to save: " + response.responseJSON[0]
+        );
+      }
     });
   }
 });

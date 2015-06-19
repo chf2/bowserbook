@@ -48,9 +48,9 @@ BowserBook.Views.PostForm = Backbone.View.extend({
                 "✓ Status updated."
               );
             },
-            error: function () {
+            error: function (model, response) {
               BowserBook.NotificationsFlash.flashNotification(
-                "x Status failed to save."
+                "× Status failed to save: " + response.responseJSON[0]
               );
             }
           });
@@ -58,7 +58,12 @@ BowserBook.Views.PostForm = Backbone.View.extend({
 
         this.model = new BowserBook.Models.Post({ about_id: this.aboutId() });
         this.render();
-      }.bind(this)
+      }.bind(this),
+      error: function (model, response) {
+        BowserBook.NotificationsFlash.flashNotification(
+          "× Post failed to save: " + response.responseJSON[0]
+        );
+      }
     });
   },
 

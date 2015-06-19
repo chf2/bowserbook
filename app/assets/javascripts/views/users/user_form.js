@@ -41,7 +41,7 @@ BowserBook.Views.UserForm = Backbone.View.extend({
       error: function (model, response) {
         userForm.$el.append(response.to_json);
         BowserBook.NotificationsFlash.flashNotification(
-          "x Profile failed to update."
+          "× Profile failed to update: " + response.responseJSON[0]
         );
       }
     });
