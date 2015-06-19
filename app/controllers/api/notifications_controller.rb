@@ -1,16 +1,6 @@
 class Api::NotificationsController < ApplicationController
   before_action :validate_user, only: [:update, :destroy, :show]
 
-  def create
-    @notification = Notification.new(notification_params)
-    @notification.read = false
-    if @notification.save
-      render :show
-    else
-      render json: @notification.errors.full_messages, status: 422
-    end
-  end
-
   def show
     @notification = Notification.find(params[:id])
   end

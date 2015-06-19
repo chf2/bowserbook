@@ -46,7 +46,7 @@ User.create!(
   summary: "I am Bowser, and I am the best. This website was named after me for a reason!",
   status: "Plotting my next move...",
   profile_public_id: "image/upload/v1434219865/bowserbook_images/a9tim5clwljp89lt92cm.png#034a03a1d9b9b35b75ee79f2652a93aaf4144b2f",
-  background_public_id: "image/upload/v1434219873/bowserbook_images/evtmilo2dk039dvekt0c.png"
+  background_public_id: "image/upload/v1434754499/bowserbook_images/bowser_bg3.png"
 )
 
 Post.create!(author_id: 3, about_id: 3, body: "Plotting my next move...")
