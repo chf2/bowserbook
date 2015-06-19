@@ -18,6 +18,10 @@ BowserBook.Models.User = Backbone.Model.extend({
       this.notifications().set(response.notifications);
       delete response.notifications;
     }
+    if (response.recent_activity) {
+      this.recentActivity().set(response.recent_activity);
+      delete response.recent_activity;
+    }
 
     return response;
   },
@@ -54,6 +58,14 @@ BowserBook.Models.User = Backbone.Model.extend({
     this._notifications.fetch();
 
     return this._notifications;
+  },
+
+  recentActivity: function () {
+    if (!this._recentActivity) {
+      this._recentActivity = new BowserBook.Collections.Notifications();
+    }
+
+    return this._recentActivity;
   },
 
   wallPosts: function () {

@@ -45,8 +45,13 @@ BowserBook.Views.UserShow = Backbone.CompositeView.extend({
 
   swapToInfo: function (event) {
     this.swapHelper(event);
+    var recentActivity = this.model.recentActivity();
+    recentActivity.fetch({
+      data: { recent_activity: true }
+    });
     var infoView = new BowserBook.Views.ProfileInfoMain({
-      model: this.model
+      model: this.model,
+      collection: recentActivity
     });
     this.addSubview('.wall-info-container', infoView);
   },

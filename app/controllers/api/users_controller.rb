@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       Notification.create(
-        body: "You updated your profile.",
+        body: "You updated your profile",
         user_id: current_user.id,
         incoming: false,
         read: false

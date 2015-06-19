@@ -5,5 +5,7 @@
   </p>
 <% }) %>
 
-<h3>Recent Activity:</h3>
-Recent Activity Goes Here
+<% if (parseInt(window.CURRENT_USER_ID) === this.model.id) { %>
+  <h3>My Recent Activity</h3>
+  <ul class="recent-activity-list"></ul>
+<% } %>

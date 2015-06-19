@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   end
 
   def recent_activity
-    notifications.where(incoming: false).all
+    notifications.where('incoming = FALSE AND created_at > ?', Time.now - 1.week).all
   end
 
   def reset_session_token!

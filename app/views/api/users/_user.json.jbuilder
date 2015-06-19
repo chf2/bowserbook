@@ -31,15 +31,19 @@ json.wall_posts user.wall_posts do |post|
   json.partial! 'api/posts/post', post: post
 end
 
-if current_user.id == user.id
-  json.friend_requests_in user.friend_requests_in do |friend_request|
-    json.partial! 'api/friendships/friendship', friend_request: friend_request
-  end
-end
-
 json.friends user.friends.all do |friend|
   json.id friend.id
   json.username friend.short_username
   json.image_url friend.image_url
   json.status friend.status
+end
+
+if current_user.id == user.id
+  json.friend_requests_in user.friend_requests_in do |friend_request|
+    json.partial! 'api/friendships/friendship', friend_request: friend_request
+  end
+
+  json.recent_activity user.recent_activity do |notification|
+    json.partial! 'api/notifications/notification', notification: notification
+  end
 end

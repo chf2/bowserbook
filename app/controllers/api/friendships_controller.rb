@@ -12,7 +12,7 @@ class Api::FriendshipsController < ApplicationController
         read: false
       )
       Notification.create(
-        body: "You sent #{@friendship.friended.username} a friend request.",
+        body: "You sent #{@friendship.friended.username} a friend request",
         user_id: current_user.id,
         incoming: false,
         read: false
@@ -34,7 +34,7 @@ class Api::FriendshipsController < ApplicationController
           read: false
         )
         Notification.create(
-          body: "You accepted #{@friendship.friender.username}'s friend request.",
+          body: "You accepted #{@friendship.friender.username}'s friend request",
           user_id: current_user.id,
           incoming: false,
           read: false
@@ -47,7 +47,7 @@ class Api::FriendshipsController < ApplicationController
           read: false
         )
         Notification.create(
-          body: "You declined #{@friendship.friender.username}'s friend request.",
+          body: "You declined #{@friendship.friender.username}'s friend request",
           user_id: current_user.id,
           incoming: false,
           read: false

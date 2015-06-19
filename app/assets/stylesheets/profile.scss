@@ -198,3 +198,16 @@
     text-decoration: none;
   }
 }
+
+.recent-activity-list {
+  list-style: none;
+  height: 30px;
+  padding-left: 15px;
+  li {
+    width: 425px;
+    border-bottom: 1px solid #CCC;
+    box-shadow: 1px 1px 1px #E7E7E7;
+    padding: 3px 5px;
+    margin-bottom: 10px;
+  }
+}

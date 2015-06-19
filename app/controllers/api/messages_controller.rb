@@ -12,7 +12,7 @@ class Api::MessagesController < ApplicationController
         read: false
       )
       Notification.create(
-        body: "You sent #{@message.recipient.username} a message.",
+        body: "You sent #{@message.recipient.username} a message",
         user_id: current_user.id,
         incoming: false,
         read: false

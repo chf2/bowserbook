@@ -13,7 +13,7 @@ class Api::PostsController < ApplicationController
           read: false
         )
         Notification.create(
-          body: "You posted on #{@post.about.username}'s wall.",
+          body: "You posted on #{@post.about.username}'s wall",
           user_id: current_user.id,
           incoming: false,
           read: false

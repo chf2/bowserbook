@@ -16,7 +16,11 @@ class Api::NotificationsController < ApplicationController
   end
 
   def index
-    @notifications = current_user.new_notifications.all
+    if params[:recent_activity]
+      @notifications = current_user.recent_activity
+    else 
+      @notifications = current_user.new_notifications.all
+    end
   end
 
   def update

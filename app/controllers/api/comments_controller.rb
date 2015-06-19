@@ -11,7 +11,7 @@ class Api::CommentsController < ApplicationController
         read: false
       )
       Notification.create(
-        body: "You commented on #{@comment.post.author.username}'s post.",
+        body: "You commented on #{@comment.post.author.username}'s post",
         user_id: current_user.id,
         incoming: false,
         read: false
