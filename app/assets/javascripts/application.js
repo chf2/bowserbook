@@ -19,7 +19,6 @@
 //= require cloudinary
 //= require serialize_json
 //= require bootstrap
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require composite_view
