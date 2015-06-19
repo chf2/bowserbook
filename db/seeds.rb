@@ -16,7 +16,7 @@ User.create!(
   summary: "I'm Mario. I've been saving princesses since I was born. This should have been called MarioBook!",
   status: "Feeling pretty good about finding that next star today!",
   profile_public_id: "image/upload/v1434157467/bowserbook_images/c18ydlivlu3ju6pggjmx.png#20f372ee3cb3cedf1380a584e5e90289cb2ac257",
-  background_public_id: "image/upload/v1434219755/bowserbook_images/vian5na20nvidqrmpejy.png#9a2852194f4c040da9e92d76e4d9c41468244164"
+  background_public_id: "image/upload/v1434747398/bowserbook_images/mario_bg.jpg"
 )
 
 Post.create!(author_id: 1, about_id: 1, body: "Feeling pretty good about finding that next star today!")
@@ -251,3 +251,8 @@ Notification.create!(user_id: 3, body: "King Boo sent you a message.", read: fal
 Notification.create!(user_id: 3, body: "Mario commented on your post.", read: false, incoming: true)
 Notification.create!(user_id: 3, body: "Toad commented on your post.", read: false, incoming: true)
 
+Notification.create!(user_id: 1, body: "You posted on Toad's wall", read: false, incoming: false)
+Notification.create!(user_id: 1, body: "You commented on Bowser's post", read: false, incoming: false)
+Notification.create!(user_id: 3, body: "You posted on King Boo's wall", read: false, incoming: false)
+Notification.create!(user_id: 3, body: "You posted on King Boo's wall", read: false, incoming: false)
+Notification.create!(user_id: 3, body: "You posted on Mario's wall", read: false, incoming: false)
