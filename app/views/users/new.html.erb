@@ -1,5 +1,8 @@
-<div class="static-page-container">
-  <div class="col-xs-6 col-xs-offset-3">
+<div class="row splash-container">
+  <div class="mario-splash splash-image-container col-xs-4">
+    <img src="http://res.cloudinary.com/dbeva6z07/image/upload/v1434672378/bowserbook_images/mario_frontpage.png">
+  </div>
+  <div class="col-xs-4 central-form">
     <h1>Welcome to <br>BowserBook</h1>
     <form action="<%= users_url %>" method="POST">
       <%= auth_token %>
@@ -17,11 +20,16 @@
                id="user-password"
                class="form-control">
         <br>
-        <input type="submit" value="Sign Up" class="btn btn-primary">
+        <input type="submit" 
+               value="Sign Up" 
+               class="btn btn-primary form-control">
       </div>
     </form>
     <p>
       Already have an account? <%= link_to "Sign in here.", new_session_url %>
     </p>
+  </div>
+  <div class="bowser-splash splash-image-container col-xs-4">
+    <img src="http://res.cloudinary.com/dbeva6z07/image/upload/v1434672385/bowserbook_images/bowser_frontpage.png">
   </div>
 </div>

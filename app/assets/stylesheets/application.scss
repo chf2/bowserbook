@@ -15,6 +15,48 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.splash-image-container {
+  position: relative;
+  height: 400px;
+  width: 300px;
+  padding: 10px;
+  img {
+    height: 370px;
+    width: 300px;
+  }
+}
+
+.active-mario-image {
+  border-bottom: 5px solid red;
+}
+
+.active-bowser-image {
+  border-bottom: 5px solid green;
+}
+
+.demo-button {
+  display: none;
+  width: 124px;
+}
+
+.mario-splash img {
+  padding: 10px;
+}
+
+.central-form {
+  margin-top: 10px;
+  padding-left: 50px;
+  padding-right: 30px;
+  h1 {
+    text-align: center;
+  }
+}
+
+.splash-container {
+  width: 1000px;
+  margin: 20px auto 0 auto;
+}
+
 .static-page-container {
   position: absolute;
   top: 0;

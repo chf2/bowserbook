@@ -8,7 +8,7 @@
 
 User.create!(
   username: "Mario",
-  password: "password",
+  password: "mari0passw0rd",
   location: "<Secret Rescue Mission>",
   rival: "Bowser",
   interests: "Plubming, fireballs, red shells, mushrooms",
@@ -30,7 +30,7 @@ User.create!(
   birthday: Time.now - 32.years,
   summary: "Everyone always talks about Mario, but I can beat him any day!",
   status: "Going with green today.",
-  profile_public_id: "image/upload/v1434662720/bowserbook_images/luigi_profile.png"
+  profile_public_id: "image/upload/v1434662720/bowserbook_images/luigi_profile.png",
   background_public_id: "image/upload/v1434219755/bowserbook_images/luigi_bg.png"
 )
 
@@ -38,7 +38,7 @@ Post.create!(author_id: 2, about_id: 2, body: "Going with green today.")
 
 User.create!(
   username: "Bowser",
-  password: "password",
+  password: "bows3rpassw0rd",
   location: "Princess Peach's Castle",
   rival: "Mario",
   interests: "Stealing things, being bad, breathing fire, raising Bowser Jr.",
@@ -150,7 +150,7 @@ User.create!(
   birthday: Time.now - 2.years,
   summary: "Waaaaaahhhhhhh!! Waaaaaaahhhhhhh!!",
   status: "Waaaaaahhhhhhh!!",
-  profile_public_id: "image/upload/v1434654119/bowserbook_images/b8wu2pztg21tsrmt6367.png"
+  profile_public_id: "image/upload/v1434654119/bowserbook_images/b8wu2pztg21tsrmt6367.png",
   background_public_id: "image/upload/v1434654126/bowserbook_images/jply4re3o6uznhkneoil.png"
 )
 

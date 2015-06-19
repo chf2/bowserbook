@@ -1,5 +1,8 @@
-<div class="static-page-container">
-  <div class="col-xs-6 col-xs-offset-3">
+<div class="row splash-container">
+  <div class="mario-splash splash-image-container col-xs-4">
+    <img src="http://res.cloudinary.com/dbeva6z07/image/upload/v1434672378/bowserbook_images/mario_frontpage.png">
+  </div>
+  <div class="col-xs-4 central-form">
     <h1>Welcome to <br>BowserBook</h1>
     <form action="<%= session_url %>" method="POST" id="sign-in-form">
       <%= auth_token %>
@@ -16,16 +19,52 @@
                id="user-password"
                class="form-control">
         <br>
-        <input type="submit" value="Sign In" class="btn btn-primary">
+        <div class="submit-button-container">  
+          <input type="submit"
+                 id="form-submit" 
+                 value="Sign In" 
+                 class="btn btn-primary form-control">
+
+          <button id="m-demo-btn" 
+                  class="btn btn-danger demo-button">Choose Mario</button>
+
+          <button id="b-demo-btn" 
+                  class="btn btn-success demo-button">Choose Bowser</button>
+        </div>
       </div>
     </form>
-    <p>New to BowserBook? <%= link_to "Sign up here", new_user_url %>, or log in with a <a id="demo-button" href="javascript:void(0)">Demo Account</a>.</p>
+    <p>
+      New to BowserBook? <%= link_to "Sign up here", new_user_url %>, or log in with a 
+      <a id="demo-show-button" href="javascript:void(0)">Demo Account</a>.
+    </p>
+  </div>
+  <div class="bowser-splash splash-image-container col-xs-4">
+    <img src="http://res.cloudinary.com/dbeva6z07/image/upload/v1434672385/bowserbook_images/bowser_frontpage.png">
   </div>
 </div>
 <script>
-  $('#demo-button').on('click', function () {
+  $('#demo-show-button').on('click', function () {
+    $('#form-submit').hide();
+    $('.demo-button').show();
+  });
+  $('#m-demo-btn').on('click', function () {
     $('#user-username').val('Mario');
-    $('#user-password').val('password');
+    $('#user-password').val('mari0passw0rd');
     $('#sign-in-form').submit();
+  });
+  $('#b-demo-btn').on('click', function () {
+    $('#user-username').val('Bowser');
+    $('#user-password').val('bows3rpassw0rd');
+    $('#sign-in-form').submit();
+  });
+  $('.submit-button-container').on('mouseover', '#m-demo-btn', function (e) {
+    $('.mario-splash').addClass('active-mario-image');
+  }).on('mouseleave', '#m-demo-btn', function (e) {
+    $('.mario-splash').removeClass('active-mario-image');
+  });
+  $('.submit-button-container').on('mouseover', '#b-demo-btn', function (e) {
+    $('.bowser-splash').addClass('active-bowser-image');
+  }).on('mouseleave', '#b-demo-btn', function (e) {
+    $('.bowser-splash').removeClass('active-bowser-image');
   });
 </script>
