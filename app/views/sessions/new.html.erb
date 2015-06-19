@@ -42,6 +42,11 @@
     <img src="http://res.cloudinary.com/dbeva6z07/image/upload/v1434672385/bowserbook_images/bowser_frontpage.png">
   </div>
 </div>
+<div class="row underline-container">
+  <div class="mario-underline col-xs-4"></div>
+  <div class="col-xs-4"></div>
+  <div class="bowser-underline col-xs-4"></div>
+</div>
 <script>
   $('#demo-show-button').on('click', function () {
     $('#form-submit').hide();
@@ -57,14 +62,14 @@
     $('#user-password').val('bows3rpassw0rd');
     $('#sign-in-form').submit();
   });
-  $('.submit-button-container').on('mouseover', '#m-demo-btn', function (e) {
-    $('.mario-splash').addClass('active-mario-image');
+  $('.submit-button-container').on('mouseenter', '#m-demo-btn', function (e) {
+    $('.mario-underline').show();
   }).on('mouseleave', '#m-demo-btn', function (e) {
-    $('.mario-splash').removeClass('active-mario-image');
+    $('.mario-underline').hide();
   });
-  $('.submit-button-container').on('mouseover', '#b-demo-btn', function (e) {
-    $('.bowser-splash').addClass('active-bowser-image');
+  $('.submit-button-container').on('mouseenter', '#b-demo-btn', function (e) {
+    $('.bowser-underline').show();
   }).on('mouseleave', '#b-demo-btn', function (e) {
-    $('.bowser-splash').removeClass('active-bowser-image');
+    $('.bowser-underline').hide();
   });
 </script>

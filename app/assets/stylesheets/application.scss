@@ -26,12 +26,40 @@
   }
 }
 
-.active-mario-image {
-  border-bottom: 5px solid red;
+.mario-underline {
+  display: none;
+  float: left;
+  height: 9px;
+  width: 300px;
+  background: #d43f3a; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d43f3a 0%, #d9534f 20%, #ffffff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d43f3a), color-stop(33%,#d9534f)2 color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #d43f3a 0%,#d9534f 20%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #d43f3a 0%,#d9534f 20%,#ffffff 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #d43f3a 0%,#d9534f 20%,#ffffff 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #d43f3a 0%,#d9534f 20%,#ffffff 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d43f3a', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 
-.active-bowser-image {
-  border-bottom: 5px solid green;
+.bowser-underline {
+  display: none;
+  float: right;
+  height: 9px;
+  margin-right: 70px;
+  width: 300px;
+  background: #4cae4c; /* Old browsers */
+  background: -moz-linear-gradient(top,  #4cae4c 0%, #5cb85c 20%, #ffffff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4cae4c), color-stop(33%,#5cb85c)2 color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #4cae4c 0%,#5cb85c 20%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #4cae4c 0%,#5cb85c 20%,#ffffff 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #4cae4c 0%,#5cb85c 20%,#ffffff 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #4cae4c 0%,#5cb85c 20%,#ffffff 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cae4c', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.underline-container {
+  width: 1000px;
+  margin: 0 auto;
 }
 
 .demo-button {
