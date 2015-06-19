@@ -121,7 +121,7 @@ User.create!(
   summary: "I love winning at tennis, winning at dancing, and winning.",
   status: "Deuce",
   profile_public_id: "image/upload/v1434219979/bowserbook_images/waluigi_profile.png",
-  background_public_id: "image/upload/c_crop,h_1200,w_3200,y_100/v1434219942/bowserbook_images/waluigi_bg.png"
+  background_public_id: "image/upload/c_crop,h_1200,w_3200,y_100/v1434219942/bowserbook_images/waluigi_bg.jpg"
 )
 
 Post.create!(author_id: 8, about_id: 8, body: "Deuce")

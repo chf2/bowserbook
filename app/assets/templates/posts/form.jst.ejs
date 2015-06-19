@@ -9,9 +9,6 @@
 <form class="create-post-form">
   <div class="form-group">
     <label for="post-body"><%= labelValue %></label>
-    <% if (!post.isNew()) { %>
-      <button class="close">&times;</button>
-    <% } %>
     <input type="hidden" 
            name="post[about_id]" 
            value="<%= post.escape('about_id') %>">

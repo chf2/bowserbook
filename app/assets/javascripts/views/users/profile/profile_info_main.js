@@ -13,7 +13,7 @@ BowserBook.Views.ProfileInfoMain = Backbone.CompositeView.extend({
     var activityView = new BowserBook.Views.ActivityIndexItem({
       model: activity
     });
-    this.addSubview('.recent-activity-list', activityView);
+    this.addSubview('.recent-activity-list', activityView, true);
   },
 
   render: function () {
