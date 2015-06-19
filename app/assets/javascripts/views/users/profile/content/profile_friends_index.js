@@ -21,7 +21,6 @@ BowserBook.Views.ProfileFriendsIndex = Backbone.CompositeView.extend({
     var indexItem = new BowserBook.Views.ProfileFriendIndexItem({ 
       model: friend
     });
-    debugger
     this.addSubview('.profile-friends-container', indexItem);
   }
 });

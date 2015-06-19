@@ -4,12 +4,14 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     if @comment.save
-      Notification.create(
-        body: "#{current_user.username} commented on your post.",
-        user_id: @comment.post.author_id,
-        incoming: true,
-        read: false
-      )
+      if @comment.post.author_id != current_user.id
+        Notification.create(
+          body: "#{current_user.username} commented on your post.",
+          user_id: @comment.post.author_id,
+          incoming: true,
+          read: false
+        )
+      end
       Notification.create(
         body: "You commented on #{@comment.post.author.username}'s post",
         user_id: current_user.id,
