@@ -34,7 +34,7 @@ BowserBook.Views.PostForm = Backbone.View.extend({
     event.preventDefault();
     var params = $(event.currentTarget).serializeJSON();
     this.model.save(params, {
-      success: function (model) {
+      success: function () {
         if (this.collection) {
           this.collection.add(this.model);
         }
@@ -43,20 +43,16 @@ BowserBook.Views.PostForm = Backbone.View.extend({
           var user = new BowserBook.Models.User({ id: this.aboutId() });
           user.set({ status: params['post']['body'] });
           user.save({}, {
-            success: function (model) {
-              BowserBook.NotificationsOut.createNotification({
-                body: "✓ Status updated.",
-                incoming: false,
-                user_id: model.escape('id'),
-                show: true
-              });
+            success: function () {
+              BowserBook.NotificationsFlash.flashNotification(
+                "✓ Status updated."
+              );
+            },
+            error: function () {
+              BowserBook.NotificationsFlash.flashNotification(
+                "x Status failed to save."
+              );
             }
-          });
-        } else {
-          BowserBook.NotificationsIn.createNotification({
-            body: window.CURRENT_USER_NAME + " posted on your wall.",
-            incoming: true,
-            user_id: model.escape('about_id')
           });
         }
 
@@ -67,9 +63,7 @@ BowserBook.Views.PostForm = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ 
-      post: this.model
-    });
+    var content = this.template({ post: this.model });
     this.$el.html(content);
     return this;
   }

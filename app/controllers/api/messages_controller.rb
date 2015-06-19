@@ -5,6 +5,18 @@ class Api::MessagesController < ApplicationController
     @message = current_user.sent_messages.new(create_message_params)
     @message.read = false
     if @message.save
+      Notification.create(
+        body: "#{current_user.username} sent you a message.",
+        user_id: @message.recipient_id,
+        incoming: true,
+        read: false
+      )
+      Notification.create(
+        body: "You sent #{@message.recipient.username} a message.",
+        user_id: current_user.id,
+        incoming: false,
+        read: false
+      )
       render :show
     else
       render json: @message.errors.full_messages, status: 422

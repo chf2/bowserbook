@@ -36,17 +36,13 @@ BowserBook.Views.UserForm = Backbone.View.extend({
           '/profiles/' + userForm.model.id, 
           { trigger: true } 
         );
-
-        var outMessage = "✓ Profile updated!"
-        BowserBook.NotificationsOut.createNotification({
-          body: outMessage,
-          incoming: false,
-          user_id: model.id,
-          show: true
-        });
+        BowserBook.NotificationsFlash.flashNotification("✓ Profile updated!");
       },
       error: function (model, response) {
         userForm.$el.append(response.to_json);
+        BowserBook.NotificationsFlash.flashNotification(
+          "x Profile failed to update."
+        );
       }
     });
   }

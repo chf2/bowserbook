@@ -5,6 +5,20 @@ class Api::PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
+      if @post.about_id != current_user.id
+        Notification.create(
+          body: "#{current_user.username} posted on your wall.",
+          user_id: @post.about_id,
+          incoming: true,
+          read: false
+        )
+        Notification.create(
+          body: "You posted on #{@post.about.username}'s wall.",
+          user_id: current_user.id,
+          incoming: false,
+          read: false
+        )
+      end
       render :show
     else
       render json: @post.errors.full_messages, status: 422

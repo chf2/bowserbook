@@ -30,23 +30,6 @@ BowserBook.Views.FriendRequestIndexItem = Backbone.View.extend({
         if (this.collection) {
           this.collection.remove(this.model);
         }
-
-        var outMessage = "Accepted friend request from " + 
-          this.model.escape('friender_username') + ".";
-        var inMessage = 
-          this.model.escape('friended_username') + " accepted your friend request.";
-        BowserBook.NotificationsOut.createNotification({
-          body: outMessage,
-          incoming: false,
-          user_id: this.model.escape('friended_id'),
-          show: false
-        });
-        BowserBook.NotificationsIn.createNotification({
-          body: inMessage,
-          incoming: true,
-          user_id: this.model.escape('friender_id')
-        });
-
         this.remove();
       }.bind(this)
     });
@@ -63,23 +46,6 @@ BowserBook.Views.FriendRequestIndexItem = Backbone.View.extend({
         if (this.collection) {
           this.collection.remove(this.model);
         }
-
-        var outMessage = "Declined friend request from " + 
-          this.model.escape('friender_username') + ".";
-        var inMessage = 
-          this.model.escape('friended_username') + " declined your friend request.";
-        BowserBook.NotificationsOut.createNotification({
-          body: outMessage,
-          incoming: false,
-          user_id: this.model.escape('friended_id'),
-          show: false
-        });
-        BowserBook.NotificationsIn.createNotification({
-          body: inMessage,
-          incoming: true,
-          user_id: this.model.escape('friender_id')
-        });
-
         this.remove();
       }.bind(this)
     });

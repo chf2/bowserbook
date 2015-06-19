@@ -29,11 +29,6 @@ BowserBook.Views.CommentForm = Backbone.View.extend({
         this.post.comments().add(this.model);
         this.model = new BowserBook.Models.Comment({ post: this.model.post });
         this.render();
-        BowserBook.NotificationsIn.createNotification({
-          body: model.escape('author_name') + " commented on your post.",
-          incoming: true,
-          user_id: this.post.escape('author_id')
-        });
       }.bind(this)
     });
   }

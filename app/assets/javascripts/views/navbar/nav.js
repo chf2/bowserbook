@@ -12,11 +12,9 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   initialize: function () {
     this.collection = new BowserBook.Collections.Users();
-    this.notificationsOut = BowserBook.NotificationsOut;
-    this.notificationsIn = BowserBook.NotificationsIn;
     this._notificationsShowing = false;
-    this.listenTo(this.notificationsOut, 'add', this.displayNotificationsOut);
-    this.listenTo(this.notificationsIn, 'reset add', this.updateNotificationsIn);
+    this.listenTo(BowserBook.NotificationsFlash, 'add', this.displayNotificationsFlash);
+    this.listenTo(BowserBook.NotificationsIn, 'reset add', this.updateNotificationsIn);
   },
 
   render: function () {
@@ -76,8 +74,8 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
   // NOTIFICATIONS METHODS
 
-  displayNotificationsOut: function (notification) {
-    var list = this.$('.notifications-out-list');
+  displayNotificationsFlash: function (notification) {
+    var list = this.$('.notifications-flash-list');
     var item = $("<li class='notification-item'>");
     item.html(notification.escape('body'));
     list.append(item);
@@ -85,7 +83,7 @@ BowserBook.Views.Nav = Backbone.View.extend({
 
     setTimeout(function () {
       list.slideUp(600, function () {
-        BowserBook.NotificationsOut.remove(notification);
+        BowserBook.NotificationsFlash.remove(notification);
         item.remove();
       });
     }, 3000);
@@ -119,8 +117,8 @@ BowserBook.Views.Nav = Backbone.View.extend({
   updateNotificationsIn: function () {
     var list = this.$('.notifications-in-list');
     var badge = this.$('.notifications-badge');
-    var numNotifications = this.notificationsIn.length;
-    this.notificationsIn.each(function (notification) {
+    var numNotifications = BowserBook.NotificationsIn.length;
+    BowserBook.NotificationsIn.each(function (notification) {
       var item = $("<li class='notification-item'>");
       item.html(notification.escape('body'));
       list.append(item);

@@ -4,6 +4,12 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      Notification.create(
+        body: "You updated your profile.",
+        user_id: current_user.id,
+        incoming: false,
+        read: false
+      )
       render :show
     else
       render json: @user.errors.full_messages
