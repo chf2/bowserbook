@@ -10,12 +10,13 @@ BowserBook.Views.CommentForm = Backbone.View.extend({
   initialize: function (options) {
     this.post = options.post;
     this.model = new BowserBook.Models.Comment();
+    this.listenTo(BowserBook.CurrentUser, 'change:thumbnail_url', this.render);
   },
 
   render: function () {
     var content = this.template({ 
       post: this.post, 
-      current_user_thumbnail_url: window.CURRENT_USER_THUMBNAIL_URL
+      current_user_thumbnail_url: BowserBook.CurrentUser.escape('thumbnail_url')
     });
     this.$el.html(content);
     return this;

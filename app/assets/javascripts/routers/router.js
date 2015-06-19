@@ -17,7 +17,7 @@ BowserBook.Routers.Router = Backbone.Router.extend({
     if (this._currentView instanceof BowserBook.Views.DashboardShow) {
       this._currentView.swapContent(subview);
     } else {
-      var user = this.collection.getOrFetch(window.CURRENT_USER_ID);
+      var user = BowserBook.CurrentUser;
       var dashboardView = new BowserBook.Views.DashboardShow({
         model: user,
         contentSubview: subview
@@ -36,13 +36,13 @@ BowserBook.Routers.Router = Backbone.Router.extend({
   },
 
   feed: function () {
-    var user = this.collection.getOrFetch(window.CURRENT_USER_ID);
+    var user = BowserBook.CurrentUser;
     var feedView = new BowserBook.Views.FeedContent({ model: user });
     this.dashboard(feedView);
   },
 
   messages: function () {
-    var user = this.collection.getOrFetch(window.CURRENT_USER_ID);
+    var user = BowserBook.CurrentUser;
     var messagesView = new BowserBook.Views.MessagesContainer({
       model: user,
       collection: user.messages()
@@ -51,7 +51,12 @@ BowserBook.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
-    var user = this.collection.getOrFetch(id);
+    var user;
+    if (parseInt(id) === BowserBook.CurrentUser.id) {
+      user = BowserBook.CurrentUser;
+    } else {
+      user = this.collection.getOrFetch(id);
+    }
     var view = new BowserBook.Views.UserShow({ model: user });
     this._swapView(view);
   },

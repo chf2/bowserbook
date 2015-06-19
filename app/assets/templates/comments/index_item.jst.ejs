@@ -2,7 +2,7 @@
   <img src="<%= comment.escape('author_image_url') %>" 
        class="comment-img">
   <%= comment.escape('body') %>
-  <% if (window.CURRENT_USER_ID == comment.escape('author_id')) { %>
+  <% if (BowserBook.CurrentUser.id === parseInt(comment.escape('author_id'))) { %>
     <button class='close delete pull-right'>&times;</button>
   <% } %>
 </div>

@@ -21,8 +21,8 @@
       <div class="bb-navbar-right">
         <ul class="bowserbook-nav">
           <li class="nav-item">
-            <a href="#/profiles/<%= window.CURRENT_USER_ID %>">
-              <%= window.CURRENT_USER_NAME %>
+            <a href="#/profiles/<%= BowserBook.CurrentUser.id %>">
+              <%= BowserBook.CurrentUser.escape('username') %>
             </a>
           </li>
           <li class="nav-item"><a href="#/home">Home</a></li>

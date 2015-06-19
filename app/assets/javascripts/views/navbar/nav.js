@@ -13,6 +13,7 @@ BowserBook.Views.Nav = Backbone.View.extend({
   initialize: function () {
     this.collection = new BowserBook.Collections.Users();
     this._notificationsShowing = false;
+    this.listenTo(BowserBook.CurrentUser, 'change:username change:id', this.render);
     this.listenTo(BowserBook.NotificationsFlash, 'add', this.displayNotificationsFlash);
     this.listenTo(BowserBook.NotificationsIn, 'reset add', this.updateNotificationsIn);
   },

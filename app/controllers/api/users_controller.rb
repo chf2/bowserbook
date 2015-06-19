@@ -17,8 +17,12 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.where("id = ?", params[:id])
-                .includes(posts: [:comments, :author]).first
+    if params[:current_user_fetch]
+      @user = current_user
+    else
+      @user = User.where("id = ?", params[:id])
+                  .includes(posts: [:comments, :author]).first
+    end
   end
 
   def index

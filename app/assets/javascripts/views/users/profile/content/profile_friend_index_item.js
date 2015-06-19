@@ -4,6 +4,7 @@ BowserBook.Views.ProfileFriendIndexItem = Backbone.View.extend({
   tagName: 'tr',
 
   render: function () {
+    debugger;
     var content = this.template({ friend: this.model });
     this.$el.html(content);
     return this;

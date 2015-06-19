@@ -1,6 +1,6 @@
 <% if (!post.isNew()) { %>
   <% var labelValue = "Edit this post:", submitValue = "Update"; %>
-<% } else if (post.escape('about_id') == window.CURRENT_USER_ID) { %>
+<% } else if (post.escape('about_id') === BowserBook.CurrentUser.id) { %>
   <% var labelValue = "Update Status", submitValue = "Post Status"; %>
 <% } else { %>
   <% var labelValue = "Post to Wall", submitValue = "Create Post"; %>

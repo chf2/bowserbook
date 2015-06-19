@@ -32,10 +32,8 @@ BowserBook.Views.PostForm = Backbone.View.extend({
           this.collection.add(this.model);
         }
 
-        if (parseInt(this.aboutId()) === parseInt(window.CURRENT_USER_ID)) {
-          var user = new BowserBook.Models.User({ id: this.aboutId() });
-          user.set({ status: params['post']['body'] });
-          user.save({}, {
+        if (parseInt(this.aboutId()) === BowserBook.CurrentUser.id) {
+          BowserBook.CurrentUser.save({ status: params['post']['body'] }, {
             success: function () {
               BowserBook.NotificationsFlash.flashNotification(
                 "✓ Status updated."

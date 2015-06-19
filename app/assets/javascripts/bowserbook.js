@@ -5,6 +5,12 @@ window.BowserBook = {
   Routers: {},
   initialize: function () {
     var users = new BowserBook.Collections.Users();
+    BowserBook.CurrentUser = new BowserBook.Models.User({
+      id: parseInt(window.CURRENT_USER_ID)
+    });
+    BowserBook.CurrentUser.fetch({
+      data: { current_user_fetch: true }
+    });
     BowserBook.NotificationsFlash = new BowserBook.Collections.Notifications();
     BowserBook.NotificationsIn = new BowserBook.Collections.Notifications();
     BowserBook.NotificationsIn.fetch({ reset: true });

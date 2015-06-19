@@ -2,7 +2,7 @@
 <h1 class="username-header"><%= user.escape('username') %></h1>
 <% if (user.escape('is_a_friend') === 'true') { %> 
   <div class="landing-friend-status">✓ Friends</div>
-<% } else if (user.id == window.CURRENT_USER_ID) { %>
+<% } else if (user === BowserBook.CurrentUser) { %>
   <div class="landing-friend-status-update">
     <a class="update-profile" href="/#/profiles/<%= user.id %>/edit">
       Update Info

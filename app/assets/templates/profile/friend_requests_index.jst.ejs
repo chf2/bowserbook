@@ -1,4 +1,4 @@
-<% if (window.CURRENT_USER_ID == userId) { %>
+<% if (BowserBook.CurrentUser.id === parseInt(userId)) { %>
   <h4>Friend Requests</h4>
   <% if (numFriendRequests === 0) { %>
     <h5>No new friend requests</h5>

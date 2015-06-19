@@ -5,7 +5,7 @@
   </p>
 <% }) %>
 
-<% if (parseInt(window.CURRENT_USER_ID) === this.model.id) { %>
+<% if (BowserBook.CurrentUser === this.model) { %>
   <h3>My Recent Activity</h3>
   <ul class="recent-activity-list"></ul>
 <% } %>
