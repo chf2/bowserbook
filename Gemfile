@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'cloudinary'
 gem 'newrelic_rpm'
 gem 'rails_12factor'
+gem 'whenever', require: false
 
 group :development do
   gem 'better_errors'
