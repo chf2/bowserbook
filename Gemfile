@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.2.1'
+gem 'thin'
 gem 'underscore'
 gem 'backbone-on-rails'
 gem 'pg'
