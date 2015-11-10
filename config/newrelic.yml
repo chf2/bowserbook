@@ -3,16 +3,16 @@
 # .NET, PHP, Python and Node applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated June 21, 2015
+# Generated November 10, 2015
 # 
-# This configuration file is custom generated for app37628354@heroku.com
+# This configuration file is custom generated for app37628354@heroku.com_2
 #
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: 65f982c41bf0b564fc018d40e6b7bbebf6293881
+  license_key: c9ccd60b02799657c7fb0546929f45b3ef8eec4e
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
