@@ -16,8 +16,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'cloudinary'
-gem 'rails_12factor'
-gem 'whenever', require: false
 
 group :development do
   gem 'better_errors'
@@ -29,5 +27,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'pry-rails'
+  gem 'rails_12factor'
+  gem 'newrelic_rpm'
 end
 
